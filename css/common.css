@@ -18,6 +18,7 @@ h1 {
     margin: 30px 0 30px;
 }
 
+
 /* ==================== 導覽列 ==================== */
 
 nav {
@@ -33,39 +34,105 @@ nav ul {
 }
 
 nav > ul {
+    background-color: #ffffff;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
+
+/* 每一個主選單項目 */
+
 nav li {
     position: relative;
 }
 
+
+/* ==================== 下拉選單 ==================== */
+
 nav li ul {
     display: none;
+
     position: absolute;
+
+    /* 放到主選單正下方 */
+    top: 100%;
+
+    /* 讓下拉選單以主選單項目為中心 */
+    left: 50%;
+    transform: translateX(-50%);
+
+    /* 下拉選單背景 */
+    background-color: #ffffff;
+    opacity: 0.8;
+
+    margin: 0;
+    padding: 0;
+
+    /* 最小寬度 */
+    min-width: 160px;
+
+    /* 顯示在其他內容上方 */
+    z-index: 1000;
 }
+
+
+/* 滑鼠移到主選單時，顯示下拉選單 */
 
 nav li:hover ul {
     display: block;
 }
 
+
+/* ==================== 主選單連結 ==================== */
+
 nav a {
     display: block;
+
     padding: 20px 30px;
+
     color: rgb(0, 0, 0);
+
     text-decoration: none;
 }
+
+
+/* ==================== 下拉選單連結 ==================== */
+
+nav li ul a {
+    /* 文字置中 */
+    text-align: center;
+
+    /* 下拉選單內縮 */
+    padding: 12px 20px;
+
+    /* 不換行 */
+    white-space: nowrap;
+
+    /* 淡淡的黑色格線 */
+    border: 1px solid rgba(197, 197, 197, 0.342);
+}
+
+
+/* ==================== 下拉選單滑鼠效果 ==================== */
+
+nav li ul a:hover {
+    background-color: #eeeded;
+    opacity: 0.9;
+}
+
 
 /* ==================== 共用區塊 ==================== */
 
 section {
     padding: 50px;
 }
+
 
 /* ==================== 共用按鈕 ==================== */
 

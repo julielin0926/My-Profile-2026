@@ -4,15 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | My Profile</title>
+
+    <title>作者登入 | My Profile</title>
+
     <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/login.css">
 </head>
 
 <body>
-     
-<!-- 導覽列區塊 -->  
-    <h1>Contact | My Profile</h1>
+
+    <header>
+
+         <!-- 導覽列區塊 --> 
+        <h1>My Profile</h1>
         <nav>
             <ul>
                 <li><a href="index.html">首頁</a></li>
@@ -50,18 +54,33 @@
                     </ul>
                 </li>
                 <li><a href="contact.html">聯絡方式</a></li>
+                <li><a href="login.html">作者登入</a></li>
             </ul>
         </nav>
 
+    </header>
 
-<!-- 聯絡資訊區塊 -->  
-        <main>
-            <section class="contact-info">
-                <h2>Contact me</h2>
-                <p>Instagram：<a href="https://www.instagram.com/zylin__0926?stkn=bHdnbHFwamttOWVm&utm_source=qr">zylin__0926</a></p>
-                <p>Email：julielin92926@gmail.com</p>
-            </section>
-        </main>
+    <main>
+
+        <section class="login">
+
+            <h2>作者登入</h2>
+
+            <form id="loginForm">
+
+                <label for="account">帳號</label>
+                <input type="text" id="account" name="account">
+
+                <label for="password">密碼</label>
+                <input type="password" id="password" name="password">
+
+                <button type="submit">登入</button>
+
+            </form>
+
+        </section>
+
+    </main>
 
 </body>
 
