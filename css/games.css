@@ -1,15 +1,30 @@
-.game-page {
-    
+/* ==================== 遊戲作品，歡迎試玩!!! ==================== */
+
+.game {
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
+.game h2 {
+    text-align: center;
+}
+
+/* ==================== 遊戲卡片 ==================== */
+
 .game-list {
-    
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 .game-card {
-    
+    padding: 20px;
+    border: 1px solid #ccc;
+    width: 200px;
 }
 
 .game-card img {
-    
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
 }
