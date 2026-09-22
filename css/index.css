@@ -1,0 +1,78 @@
+/* ==================== 首頁 Hero ==================== */
+
+.hero {
+    min-height: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 60px;
+}
+
+.hero h2 {
+    font-size: 30px;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 20px;
+}
+
+/* ==================== 個人照片 ==================== */
+
+.profile-image img {
+    width: 200px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10%;
+}
+
+/* ==================== 個人介紹 ==================== */
+
+.profile-text h2 {
+    font-size: 36px;
+    margin: 0 0 15px;
+}
+
+.profile-text p {
+    font-size: 20px;
+    margin: 8px 0;
+}
+
+/* ==================== 關於我 ==================== */
+
+.intro {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.intro p {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* ==================== 代表作 ==================== */
+
+.featured {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.featured h2 {
+    text-align: center;
+}
+
+/* ==================== 遊戲卡片 ==================== */
+
+.game-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.game-card {
+    padding: 20px;
+    border: 1px solid #ccc;
+    width: 200px;
+}
