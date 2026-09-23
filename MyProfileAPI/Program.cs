@@ -71,6 +71,8 @@ builder.Services
 
 var app = builder.Build();
 
+
+// 原本建立作者的區塊
 if (args.Contains("--seed-author"))
 {
     if (!app.Environment.IsDevelopment())
@@ -85,6 +87,26 @@ if (args.Contains("--seed-author"))
         .GetRequiredService<AppDbContext>();
 
     await AuthorSeeder.RunAsync(context);
+
+    return;
+}
+
+
+// 新增作品匯入區塊
+if (args.Contains("--seed-works"))
+{
+    if (!app.Environment.IsDevelopment())
+    {
+        Console.WriteLine("作品匯入僅允許在開發環境執行。");
+        return;
+    }
+
+    using var scope = app.Services.CreateScope();
+
+    var context = scope.ServiceProvider
+        .GetRequiredService<AppDbContext>();
+
+    await WorkSeeder.RunAsync(context);
 
     return;
 }

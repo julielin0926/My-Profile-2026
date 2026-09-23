@@ -7,6 +7,7 @@
     <title>Video | My Profile</title>
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/videos.css">
+    <link rel="stylesheet" href="css/works.css">
 </head>
 
 <body>
@@ -55,25 +56,22 @@
         </nav>
 
 <!-- 影音作品區塊 -->
-        <section id="video">
+        <main>
+            <section class="works-section">
+                <h2>影音作品</h2>
 
-            <h2>Surprise</h2>
-            <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/bt--nQfPIU0?si=2sF3VVlvWtuZhp7j" title="YouTube video player" 
-                title="Surprise"
-                allowfullscreen >
-            </iframe>
+                <p id="worksStatus" role="status">作品載入中…</p>
 
-            <h2>流浪動物的日與夜</h2>
-            <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/g2LEcenuQHo?si=0N6L7HVNuYs_bc_l" title="YouTube video player" 
-                title="流浪動物的日與夜"
-                allowfullscreen >
-            </iframe>
+                <div
+                    id="worksList"
+                    class="works-grid"
+                    data-category="video"
+                ></div>
+            </section>
+        </main>
+
+    <script type="module" src="js/works.js"></script>
+
 </body>
 
 </html>

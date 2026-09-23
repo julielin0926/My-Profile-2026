@@ -7,6 +7,7 @@
     <title>Animations | My Profile</title>
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/works.css">
 </head>
 
 <body>
@@ -58,46 +59,19 @@
 
     <!-- 動畫作品區塊 -->
     <main>
-        <section id="video">
+        <section class="works-section">
+            <h2>動畫作品</h2>
 
-            <h2>小幽登ㄉㄨㄚˇ郎</h2>
-            <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/CC11UbcK9qM?si=A4fj61bC3Tiams3B" title="YouTube video player" 
-                title="小幽登ㄉㄨㄚˇ郎"
-                allowfullscreen >
-            </iframe>
+            <p id="worksStatus" role="status">作品載入中…</p>
 
-            <h2>失去的聲音</h2>
-            <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/8bAwB68yzBY?si=iXk814aXkl9xgvvN" title="YouTube video player" title="YouTube video player" 
-                title="失去的聲音"
-                allowfullscreen >
-            </iframe>
-
-            <h2>消失的幽靈</h2>
-            <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/lx1hlF5YE5Q?si=tWPTX8tBjslhQAsr" title="YouTube video player" 
-                title="消失的幽靈"
-                allowfullscreen >
-            </iframe>
-
-            <h2>事石令人鼻酸</h2>
-            <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/TCYr43luywc?si=r4vyGvzmSjLoy2Vu" title="YouTube video player" 
-                title="事石令人鼻酸"
-                allowfullscreen >
-            </iframe>
-
+            <div
+                id="worksList"
+                class="works-grid"
+                data-category="animation"
+            ></div>
         </section>
     </main>
+    <script type="module" src="js/works.js"></script>
 
 </body>
 

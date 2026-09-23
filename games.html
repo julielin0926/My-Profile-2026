@@ -7,6 +7,7 @@
     <title>Games | My Profile</title>
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/games.css">
+    <link rel="stylesheet" href="css/works.css">
 </head>
 
 <body>
@@ -57,43 +58,20 @@
     
 <!-- 遊戲作品區塊 -->
     <main>
-        <section class="game">
-            <h2>遊戲作品，歡迎試玩!!!</h2>
-            <div class="game-list">
-                <div class="game-card">
-                    <img src="images/xinshengmimi.png" alt="心聲密語">
-                    <h3>心聲密語</h3>
-                    <p>3D Game</p>
-                    <p>2026</p>
-                    <a href="https://drive.google.com/drive/folders/1yTG1GwC1kpS2oyGAruwCzZpNf6i1fbY-" class="button">前往下載</a>
-                </div>
+        <section class="works-section">
+            <h2>遊戲作品，歡迎試玩！</h2>
 
-                <div class="game-card">
-                    <img src="images/yulinzhizhan.png" alt="雨林之戰">
-                    <h3>雨林之戰</h3>
-                    <p>2D Web Game</p>
-                    <p>2023</p>
-                    <a href="https://julielin0926.github.io/game/game/index.html" class="button">前往試玩</a>
-                </div>
-                
-                <div class="game-card">
-                    <img src="images/zhongguo.chuzhengji.png" alt="眾果出征紀">
-                    <h3>眾果出征紀</h3>
-                    <p>2D Web Game</p>
-                    <p>2023</p>
-                    <a href="https://julielin0926.github.io/game/game2/index.html" class="button">前往試玩</a>
-                </div>
+            <p id="worksStatus" role="status">作品載入中…</p>
 
-                <div class="game-card">
-                    <img src="images/menghun guoguan.png" alt="獴混過關">
-                    <h3>獴混過關</h3>
-                    <p>2D Web Game</p>
-                    <p>2023</p>
-                    <a href="https://drive.google.com/drive/folders/1djUY1nl4SwsrczSiR6uErls92ixK1UdO" class="button">僅提供閱覽</a>
-                </div>
-            </div>
+            <div
+                id="worksList"
+                class="works-grid"
+                data-category="game"
+            ></div>
         </section>
     </main>
+
+    <script type="module" src="js/works.js"></script>
     
 </body>
 

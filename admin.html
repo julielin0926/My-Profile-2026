@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
@@ -12,25 +9,155 @@
 
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/admin.css">
-
 </head>
 
 <body>
-
     <main>
-
         <section class="admin">
+            <h1>新增作品</h1>
 
-            <h1>作品管理</h1>
+            <p id="authStatus" role="status">正在確認登入狀態…</p>
 
-            <p>歡迎回來，林子郁</p>
+            <div class="admin-actions">
+                <a href="index.html">回首頁</a>
+                <button type="button" id="logoutButton">登出</button>
+            </div>
 
-            <button>新增作品</button>
+            <form id="workForm">
+                <fieldset id="workFields" disabled>
+                    <legend>作品資料</legend>
 
+                    <label for="title">作品名稱</label>
+                    <input id="title" maxlength="120" required>
+
+                    <label for="category">作品分類</label>
+                    <select id="category" required>
+                        <option value="animation">動畫作品</option>
+                        <option value="video">影音作品</option>
+                        <option value="game">遊戲作品</option>
+                    </select>
+
+                    <fieldset id="videoFields">
+                        <legend id="videoFieldsTitle">動畫影片資料</legend>
+
+                        <label for="youtubeSrc">YouTube 嵌入式 src 網址</label>
+                        <input
+                            id="youtubeSrc"
+                            type="url"
+                            maxlength="2000"
+                            placeholder="https://www.youtube.com/embed/CC11UbcK9qM"
+                        >
+
+                        <p class="field-hint">
+                            動畫與影音皆請貼上 YouTube iframe 的 src 引號內網址，不需要貼整段 iframe。
+                        </p>
+                    </fieldset>
+
+                    <fieldset id="gameFields" hidden disabled>
+                        <legend>遊戲資料</legend>
+
+                        <label for="imageUrl">封面圖片</label>
+                        <input
+                            id="imageUrl"
+                            maxlength="1000"
+                            placeholder="images/圖片名稱.png 或 HTTPS 圖片網址"
+                        >
+
+                        <label for="genre">遊戲類型</label>
+                        <input
+                            id="genre"
+                            maxlength="80"
+                            placeholder="例如 2D Web Game"
+                        >
+
+                        <label for="year">年份</label>
+                        <input
+                            id="year"
+                            type="number"
+                            min="1900"
+                            max="2100"
+                            step="1"
+                        >
+
+                        <label for="externalUrl">試玩、下載或閱覽網址</label>
+                        <input
+                            id="externalUrl"
+                            type="url"
+                            maxlength="2000"
+                            placeholder="https://..."
+                        >
+
+                        <label for="buttonText">按鈕文字</label>
+                        <input
+                            id="buttonText"
+                            maxlength="40"
+                            placeholder="例如 前往試玩"
+                        >
+                    </fieldset>
+
+                    <label for="sortOrder">排序數字</label>
+                    <input
+                        id="sortOrder"
+                        type="number"
+                        min="0"
+                        max="2147483647"
+                        step="1"
+                        value="10"
+                        required
+                    >
+
+                    <p class="field-hint">數字越小，越前面顯示。</p>
+
+                    <button type="submit" id="saveButton">
+                        儲存作品
+                    </button>
+                </fieldset>
+            </form>
+
+            <p id="saveStatus" role="status"></p>
+            <div id="manageWorks" hidden>
+                <h2 id="worksHeading" tabindex="-1">已新增的作品</h2>
+
+                <button type="button" id="reloadWorksButton">
+                    重新整理清單
+                </button>
+
+                <p id="manageStatus" role="status"></p>
+
+                <ul id="adminWorksList" class="admin-work-list"></ul>
+            </div>
         </section>
-
     </main>
 
-</body>
+    <dialog
+        id="deleteDialog"
+        aria-labelledby="deleteDialogTitle"
+        aria-describedby="deleteDialogMessage"
+    >
+        <h2 id="deleteDialogTitle">確認刪除作品</h2>
 
+        <p id="deleteDialogMessage"></p>
+
+        <p class="delete-note">
+            刪除後無法從網頁復原，確定要繼續嗎？
+        </p>
+
+        <p id="deleteError" role="alert"></p>
+
+        <div class="dialog-actions">
+            <button type="button" id="cancelDeleteButton" autofocus>
+                取消
+            </button>
+
+            <button
+                type="button"
+                id="confirmDeleteButton"
+                class="confirm-delete-button"
+            >
+                確認
+            </button>
+        </div>
+    </dialog>
+    <script type="module" src="js/admin.js"></script>
+</body>
 </html>
