@@ -9,7 +9,7 @@ loginForm.addEventListener("submit", async function (event) {
     const password = document.getElementById("password").value;
 
     const response = await fetch(
-        "https://localhost:你的API埠號/api/Auth/login",
+        "https://localhost:7272/api/Auth/login",
         {
             method: "POST",
 
@@ -23,14 +23,16 @@ loginForm.addEventListener("submit", async function (event) {
             })
         }
     );
+if (response.ok) {
+    const data = await response.json();
 
-    if (response.ok) {
+    // 儲存登入後取得的 JWT Token
+    localStorage.setItem("token", data.token);
 
-        alert("登入成功");
+    alert("登入成功");
 
-        window.location.href = "admin.html";
-
-    } else {
+    window.location.href = "admin.html";
+} else {
 
         alert("帳號或密碼錯誤");
 

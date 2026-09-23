@@ -1,7 +1,22 @@
 using Microsoft.EntityFrameworkCore;
 using MyProfileAPI.Data;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using MyProfileAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowMyProfile", policy =>
+    {
+        policy
+            .AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
 
 // ==================================================
 // 加入 API Controller
@@ -30,8 +45,50 @@ builder.Services.AddDbContext<AppDbContext>(options =>
         builder.Configuration.GetConnectionString("DefaultConnection")
     ));
 
+builder.Services
+    .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        var jwtKey = builder.Configuration["Jwt:Key"];
+
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(jwtKey!)
+            ),
+
+            ValidateIssuer = true,
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+
+            ValidateAudience = true,
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+
+            ValidateLifetime = true
+        };
+    });
 
 var app = builder.Build();
+
+if (args.Contains("--seed-author"))
+{
+    if (!app.Environment.IsDevelopment())
+    {
+        Console.WriteLine("作者初始化功能僅允許在開發環境執行。");
+        return;
+    }
+
+    using var scope = app.Services.CreateScope();
+
+    var context = scope.ServiceProvider
+        .GetRequiredService<AppDbContext>();
+
+    await AuthorSeeder.RunAsync(context);
+
+    return;
+}
+
 
 
 // ==================================================
@@ -45,6 +102,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseCors("AllowMyProfile");
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 // ==================================================
 // 啟用 Controller
