@@ -11,4 +11,5 @@ public class AppDbContext : DbContext
     }
 
     public DbSet<Author> Authors => Set<Author>();
+    public DbSet<Work> Works => Set<Work>();
 }

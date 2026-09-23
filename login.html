@@ -54,7 +54,7 @@
                     </ul>
                 </li>
                 <li><a href="contact.html">聯絡方式</a></li>
-                <li><a href="login.html">作者登入</a></li>
+                <li><a href="login.html">作者專區</a></li>
             </ul>
         </nav>
 
@@ -64,21 +64,30 @@
 
         <!-- 登入表單 -->
         <section class="login">
-
             <h2>作者登入</h2>
-
             <form id="loginForm">
-
                 <label for="account">帳號</label>
-                <input type="text" id="account" name="account">
+                <input
+                    type="text"
+                    id="account"
+                    name="account"
+                    autocomplete="username"
+                    enterkeyhint="next"
+                    required
+                >
 
                 <label for="password">密碼</label>
-                <input type="password" id="password" name="password">
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    autocomplete="current-password"
+                    enterkeyhint="go"
+                    required
+                >
 
                 <button type="submit">登入</button>
-
             </form>
-
         </section>
 
     </main>
