@@ -10,11 +10,11 @@ const root = path.resolve(
 const output = path.join(root, "_site");
 
 const works = JSON.parse(
-    fs.readFileSync(path.join(root, "data", "works.json"), "utf8")
+    fs.readFileSync(path.join(root, "Data", "works.json"), "utf8")
 );
 
 if (!Array.isArray(works)) {
-    throw new Error("data/works.json 格式不正確");
+    throw new Error("Data/works.json 格式不正確");
 }
 
 const pages = [
@@ -44,7 +44,7 @@ for (const work of works) {
     for (const image of work.images ?? []) {
         if (
             typeof image.url !== "string" ||
-            !/^data\/work-images\/[a-f0-9]{32}\.(jpg|png|webp)$/.test(image.url)
+            !/^Data\/work-images\/[a-f0-9]{32}\.(jpg|png|webp)$/.test(image.url)
         ) {
             throw new Error(`作品 ${work.id} 的圖片路徑不正確`);
         }
@@ -105,7 +105,7 @@ fs.cpSync(
     { recursive: true }
 );
 
-copyFile("data/works.json");
+copyFile("Data/works.json");
 
 for (const imagePath of publicImagePaths) {
     copyFile(imagePath);

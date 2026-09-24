@@ -1,4 +1,4 @@
-const dataUrl = new URL("../data/works.json", import.meta.url);
+const dataUrl = new URL("../Data/works.json", import.meta.url);
 const siteRoot = new URL("../", import.meta.url);
 
 let worksPromise;
@@ -29,7 +29,7 @@ export function getPublicWorks() {
 export function getPublicImageUrl(path) {
     if (
         typeof path !== "string" ||
-        !/^data\/work-images\/[a-f0-9]{32}\.(jpg|png|webp)$/.test(path)
+        !/^Data\/work-images\/[a-f0-9]{32}\.(jpg|png|webp)$/.test(path)
     ) {
         return null;
     }

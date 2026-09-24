@@ -19,7 +19,7 @@ public static class PublicSiteExporter
                 "API 上一層找不到 index.html，請確認專案位置。");
         }
 
-        var dataDirectory = Path.Combine(siteRoot, "data");
+        var dataDirectory = Path.Combine(siteRoot, "Data");
         var outputImages = Path.Combine(dataDirectory, "work-images");
         var sourceImages = Path.Combine(
             contentRoot, "App_Data", "work-images");
@@ -87,7 +87,7 @@ public static class PublicSiteExporter
             {
                 image.Id,
                 image.Caption,
-                Url = $"data/work-images/{image.ImageUrl}"
+                Url = $"Data/work-images/{image.ImageUrl}"
             }).ToArray()
         }).ToArray();
 
