@@ -1,4 +1,9 @@
 import { API_BASE_URL } from "./api.js";
+import {
+    openWorkImages,
+    imagesAreBusy,
+    uploadImages
+} from "./admin-images.js";
 
 const form = document.getElementById("workForm");
 const workFields = document.getElementById("workFields");
@@ -225,34 +230,52 @@ form.addEventListener("submit", async function (event) {
         }
 
         const savedWork = await response.json();
+        const selectedImages = [
+            ...document.getElementById("workImages").files
+        ];
+
+        let imageMessage = "";
+
+        if (selectedImages.length > 0) {
+            try {
+                const count = await uploadImages(savedWork.id, selectedImages);
+                imageMessage = ` 已上傳 ${count} 張精華圖片。`;
+            } catch (error) {
+                imageMessage =
+                    ` 作品已建立，但圖片上傳未全部完成：${error.message}` +
+                    " 請從下方「編輯介紹與圖片」補上，不要重新建立作品。";
+            }
+        }
 
         form.reset();
         updateFields();
 
         saveStatus.textContent =
-            `「${savedWork.title}」已儲存，作品編號：${savedWork.id}。`;
-            await loadAdminWorks();
-    } catch (error) {
-        console.error(error);
-        saveStatus.textContent =
-            `${error.message} 若連線中斷，請先查看作品頁確認是否已新增，再決定是否重送。`;
-    } finally {
-        saving = false;
-        saveButton.disabled = false;
-        saveButton.textContent = "儲存作品";
-    }
-});
+            `「${savedWork.title}」已儲存，作品編號：${savedWork.id}。` +
+            imageMessage;
 
-async function loadAdminWorks() {
-    if (loadingWorks) {
-        return;
-    }
+        await loadAdminWorks();
+            } catch (error) {
+                console.error(error);
+                saveStatus.textContent =
+                    `${error.message} 若連線中斷，請先查看作品頁確認是否已新增，再決定是否重送。`;
+            } finally {
+                saving = false;
+                saveButton.disabled = false;
+                saveButton.textContent = "儲存作品";
+            }
+        });
 
-    loadingWorks = true;
-    reloadWorksButton.disabled = true;
-    manageStatus.textContent = "正在載入作品…";
+        async function loadAdminWorks() {
+            if (loadingWorks) {
+                return;
+            }
 
-    try {
+            loadingWorks = true;
+            reloadWorksButton.disabled = true;
+            manageStatus.textContent = "正在載入作品…";
+
+        try {
         const response = await fetch(`${API_BASE_URL}/api/Works`, {
             cache: "no-store"
         });
@@ -310,7 +333,7 @@ async function loadAdminWorks() {
             preview.textContent = "查看作品";
             const edit = document.createElement("button");
             edit.type = "button";
-            edit.textContent = "編輯介紹";
+            edit.textContent = "編輯介紹與圖片";
             edit.addEventListener("click", () => openDescriptionEditor(work));
             actions.append(preview, edit, deleteButton);
             item.append(info, actions);
@@ -468,21 +491,29 @@ function openDescriptionEditor(work) {
     descriptionError.textContent = "";
     descriptionDialog.showModal();
     descriptionInput.focus();
-}
+    openWorkImages(work.id);
+    }
 
-cancelDescription.addEventListener("click", () => descriptionDialog.close());
-descriptionDialog.addEventListener("cancel", event => {
-    if (updatingDescription) event.preventDefault();
-});
-document.getElementById("descriptionForm").addEventListener("submit", async event => {
-    event.preventDefault();
-    if (updatingDescription || editingDescriptionId === null) return;
+    cancelDescription.addEventListener("click", () => descriptionDialog.close());
+    descriptionDialog.addEventListener("cancel", event => {
+        if (updatingDescription) event.preventDefault();
+    });
+    document.getElementById("descriptionForm").addEventListener("submit", async event => {
+        event.preventDefault();
+        if (
+        updatingDescription ||
+        imagesAreBusy() ||
+        editingDescriptionId === null
+    ) {
+        return;
+    }
     const token = localStorage.getItem("token");
     if (!token) return returnToLogin();
     updatingDescription = true;
     saveDescription.disabled = true;
     cancelDescription.disabled = true;
     descriptionInput.disabled = true;
+    document.getElementById("editImagesFields").disabled = true;
     descriptionError.textContent = "";
     try {
         const response = await fetch(`${API_BASE_URL}/api/Works/${editingDescriptionId}/description`, {
@@ -504,6 +535,7 @@ document.getElementById("descriptionForm").addEventListener("submit", async even
         saveDescription.disabled = false;
         cancelDescription.disabled = false;
         descriptionInput.disabled = false;
+        document.getElementById("editImagesFields").disabled = false;
     }
 });
 

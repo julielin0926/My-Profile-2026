@@ -27,3 +27,17 @@
     line-height: 1.9;
 }
 #workLinks { margin-top: 24px; }
+
+.work-images-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+    gap: 20px;
+}
+
+.work-images-grid img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}

@@ -71,9 +71,45 @@ async function loadDetail() {
         }
         status.textContent = "";
         detail.hidden = false;
+        loadWorkImages(work.id);
     } catch (error) {
         console.error(error);
         status.textContent = "目前無法載入作品，請確認 API 已啟動後重新整理。";
     }
 }
+
+async function loadWorkImages(workId) {
+    const section = document.getElementById("workHighlights");
+    const list = document.getElementById("workImagesList");
+    const imageStatus = document.getElementById("workImagesStatus");
+
+    try {
+        const response = await fetch(
+            `${API_BASE_URL}/api/Works/${workId}/images`
+        );
+
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+
+        const images = await response.json();
+
+        list.replaceChildren();
+        section.hidden = images.length === 0;
+        imageStatus.textContent = "";
+
+        for (const image of images) {
+            const img = document.createElement("img");
+            img.src = new URL(image.url, API_BASE_URL).href;
+            img.alt = image.caption || "作品精華畫面";
+            img.loading = "lazy";
+            list.append(img);
+        }
+    } catch (error) {
+        console.error(error);
+        section.hidden = false;
+        imageStatus.textContent = "精華圖片暫時無法載入。";
+    }
+}
+
 loadDetail();

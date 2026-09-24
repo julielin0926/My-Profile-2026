@@ -183,10 +183,34 @@
     </dialog>
     <dialog id="descriptionDialog" aria-labelledby="descriptionDialogTitle">
         <form id="descriptionForm">
-            <h2 id="descriptionDialogTitle">編輯作品介紹</h2>
+            <h2 id="descriptionDialogTitle">編輯作品介紹與精華畫面</h2>
             <p id="descriptionWorkTitle"></p>
             <label for="editDescription">作品介紹</label>
             <textarea id="editDescription" rows="10" maxlength="10000"></textarea>
+            <fieldset id="editImagesFields">
+                <legend>作品精華畫面</legend>
+
+                <div id="existingWorkImages" class="image-editor-list"></div>
+
+                <label for="editWorkImages">追加精華圖片</label>
+                <input
+                    id="editWorkImages"
+                    type="file"
+                    accept="image/png,image/jpeg,image/webp"
+                    multiple
+                >
+
+                <button type="button" id="uploadWorkImagesButton">
+                    上傳所選圖片
+                </button>
+
+                <p class="field-hint">
+                    每張上限 5 MB。圖片上傳、移除會立即儲存，
+                    不受下方介紹文字的取消按鈕影響。
+                </p>
+
+                <p id="editImagesStatus" role="status"></p>
+            </fieldset>
             <p id="descriptionError" role="alert"></p>
             <div class="dialog-actions">
                 <button type="button" id="cancelDescription">取消</button>
