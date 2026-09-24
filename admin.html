@@ -35,6 +35,24 @@
                     <textarea id="description" rows="6" maxlength="10000"
                         placeholder="介紹作品的故事、創作理念、使用工具或你的負責內容"></textarea>
 
+                    <!-- ==================== 作品精華畫面 ==================== -->
+
+                    <fieldset id="workImageFields">
+                        <legend>作品精華畫面</legend>
+                        <label for="workImages">
+                            上傳作品精華畫面
+                        </label>
+                        <input
+                            id="workImages"
+                            type="file"
+                            accept="image/png,image/jpeg,image/webp"
+                            multiple
+                        >
+                        <p class="field-hint">
+                            可一次選擇多張圖片，適用於動畫、影音及遊戲作品。
+                        </p>
+                    </fieldset>
+
                     <label for="category">作品分類</label>
                     <select id="category" required>
                         <option value="animation">動畫作品</option>
