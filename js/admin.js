@@ -180,6 +180,7 @@ form.addEventListener("submit", async function (event) {
 
     const payload = {
         title,
+        description: textValue("description"),
         category: category.value,
         youTubeVideoId: videoId,
         imageUrl: isGame ? textValue("imageUrl") : null,
@@ -302,7 +303,17 @@ async function loadAdminWorks() {
                 openDeleteDialog(work, deleteButton);
             });
 
-            item.append(info, deleteButton);
+            const actions = document.createElement("div");
+            actions.className = "work-actions";
+            const preview = document.createElement("a");
+            preview.href = `work.html?id=${work.id}`;
+            preview.textContent = "查看作品";
+            const edit = document.createElement("button");
+            edit.type = "button";
+            edit.textContent = "編輯介紹";
+            edit.addEventListener("click", () => openDescriptionEditor(work));
+            actions.append(preview, edit, deleteButton);
+            item.append(info, actions);
             adminWorksList.append(item);
         }
 
@@ -439,6 +450,60 @@ confirmDeleteButton.addEventListener("click", async () => {
         confirmDeleteButton.disabled = false;
         cancelDeleteButton.disabled = false;
         confirmDeleteButton.textContent = "確認";
+    }
+});
+
+const descriptionDialog = document.getElementById("descriptionDialog");
+const descriptionInput = document.getElementById("editDescription");
+const descriptionError = document.getElementById("descriptionError");
+const saveDescription = document.getElementById("saveDescription");
+const cancelDescription = document.getElementById("cancelDescription");
+let editingDescriptionId = null;
+let updatingDescription = false;
+
+function openDescriptionEditor(work) {
+    editingDescriptionId = work.id;
+    document.getElementById("descriptionWorkTitle").textContent = work.title;
+    descriptionInput.value = work.description ?? "";
+    descriptionError.textContent = "";
+    descriptionDialog.showModal();
+    descriptionInput.focus();
+}
+
+cancelDescription.addEventListener("click", () => descriptionDialog.close());
+descriptionDialog.addEventListener("cancel", event => {
+    if (updatingDescription) event.preventDefault();
+});
+document.getElementById("descriptionForm").addEventListener("submit", async event => {
+    event.preventDefault();
+    if (updatingDescription || editingDescriptionId === null) return;
+    const token = localStorage.getItem("token");
+    if (!token) return returnToLogin();
+    updatingDescription = true;
+    saveDescription.disabled = true;
+    cancelDescription.disabled = true;
+    descriptionInput.disabled = true;
+    descriptionError.textContent = "";
+    try {
+        const response = await fetch(`${API_BASE_URL}/api/Works/${editingDescriptionId}/description`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+            body: JSON.stringify({ description: descriptionInput.value.trim() })
+        });
+        if (response.status === 401) return returnToLogin();
+        if (response.status === 404) throw new Error("作品已不存在，請關閉視窗並重新整理清單。");
+        if (!response.ok) throw new Error(`儲存失敗，HTTP ${response.status}`);
+        const refreshed = await loadAdminWorks();
+        descriptionDialog.close();
+        document.getElementById("worksHeading").focus();
+        saveStatus.textContent = refreshed ? "作品介紹已更新。" : "介紹已更新，請重新整理作品清單。";
+    } catch (error) {
+        descriptionError.textContent = `${error.message} 請確認連線後再試，文字會保留在此視窗。`;
+    } finally {
+        updatingDescription = false;
+        saveDescription.disabled = false;
+        cancelDescription.disabled = false;
+        descriptionInput.disabled = false;
     }
 });
 

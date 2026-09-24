@@ -1,0 +1,305 @@
+/* 基本尺寸與長文字處理 */
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+img,
+video {
+    max-width: 100%;
+}
+
+input,
+select,
+textarea {
+    min-width: 0;
+    max-width: 100%;
+    font: inherit;
+    font-size: 16px;
+}
+
+button,
+.button {
+    max-width: 100%;
+    white-space: normal;
+}
+
+button,
+input,
+select,
+textarea,
+a {
+    touch-action: manipulation;
+}
+
+h1 {
+    padding-inline: 16px;
+    font-size: clamp(1.6rem, 4vw, 2.5rem);
+}
+
+p {
+    line-height: 1.7;
+}
+
+/* 內容區留白 */
+
+section {
+    padding: clamp(24px, 4vw, 50px)
+             clamp(16px, 4vw, 50px);
+}
+
+#about,
+.contact-info {
+    width: 100%;
+    max-width: 960px;
+    margin-inline: auto;
+}
+
+.profile-image,
+.profile-text {
+    min-width: 0;
+}
+
+.login {
+    width: 100%;
+    max-width: 440px;
+    padding: 32px 20px;
+}
+
+.login input,
+.login button {
+    width: 100%;
+    min-height: 44px;
+}
+
+.admin {
+    width: 100%;
+    padding-inline: clamp(16px, 4vw, 24px);
+}
+
+.admin-actions,
+.dialog-actions {
+    flex-wrap: wrap;
+}
+
+/* 導覽：桌面保留原本排列，觸控平板橫向也不強制切換。 */
+nav > ul {
+    flex-wrap: wrap;
+}
+nav > ul > li {
+    min-width: 0;
+}
+nav li:focus-within > ul {
+    display: block;
+}
+nav a:focus-visible,
+button:focus-visible,
+.button:focus-visible {
+    outline: 3px solid #1565c0;
+    outline-offset: 3px;
+}
+.nav-toggle,
+.submenu-toggle {
+    display: none;
+}
+
+/* 手機（含橫向）與寬度 1024px 以內的直向平板。 */
+@media (max-width: 767px), (max-width: 1024px) and (orientation: portrait) {
+    nav.site-nav {
+        padding: 0 16px;
+    }
+    .site-nav > .nav-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 7px;
+        width: 48px;
+        height: 48px;
+        margin-left: auto;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        background: #fff;
+        color: #222;
+        cursor: pointer;
+    }
+    .nav-toggle span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: currentColor;
+        transition: transform 160ms ease;
+    }
+    .nav-toggle[aria-expanded="true"] span:first-child {
+        transform: translateY(4.5px) rotate(45deg);
+    }
+    .nav-toggle[aria-expanded="true"] span:last-child {
+        transform: translateY(-4.5px) rotate(-45deg);
+    }
+    .site-nav > ul {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        margin-top: 8px;
+        padding: 0;
+    }
+    .site-nav.is-open > ul {
+        display: flex;
+    }
+    .site-nav > ul > li {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        width: 100%;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .site-nav > ul > li > a {
+        min-width: 0;
+        min-height: 48px;
+        padding: 14px 12px;
+        font-weight: bold;
+    }
+    .site-nav .submenu-toggle {
+        display: grid;
+        place-items: center;
+        width: 48px;
+        height: 48px;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: #222;
+        font-size: 24px;
+        cursor: pointer;
+    }
+    .site-nav li > ul,
+    .site-nav li:hover > ul,
+    .site-nav li:focus-within > ul {
+        display: none;
+        grid-column: 1 / -1;
+        position: static;
+        top: auto;
+        left: auto;
+        transform: none;
+        min-width: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0 0 12px 12px;
+        opacity: 1;
+    }
+    .site-nav li.submenu-open > ul {
+        display: block;
+    }
+    .site-nav li ul a {
+        min-height: 44px;
+        padding: 12px;
+        white-space: normal;
+        text-align: left;
+        border: 0;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .nav-toggle span {
+        transition: none;
+    }
+}
+/* 首頁介紹 */
+
+.hero {
+    flex-wrap: wrap;
+    gap: clamp(24px, 5vw, 60px);
+}
+
+.profile-text {
+    max-width: 100%;
+}
+
+@media (max-width: 700px) {
+    header {
+        padding: 20px 0 0;
+    }
+
+    .hero {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-text h2 {
+        font-size: 28px;
+    }
+
+    .profile-text p {
+        font-size: 17px;
+    }
+
+    .intro p {
+        font-size: 16px;
+    }
+}
+
+
+
+/* 首頁原本的代表作卡片 */
+
+.game-list {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+    gap: 20px;
+}
+
+.game-card {
+    width: auto;
+    min-width: 0;
+}
+
+.game-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.game-card .button {
+    text-align: center;
+}
+
+/* 資料庫讀取的作品卡片 */
+
+.works-grid {
+    grid-template-columns:
+        repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+}
+
+.work-card {
+    min-width: 0;
+}
+
+.work-card iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+}
+
+@media (max-width: 480px) {
+    .works-section {
+        padding: 24px 16px;
+    }
+
+    .work-card,
+    .game-card {
+        padding: 16px;
+    }
+}

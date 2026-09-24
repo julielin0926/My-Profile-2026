@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 
 <body>
@@ -29,6 +30,10 @@
 
                     <label for="title">作品名稱</label>
                     <input id="title" maxlength="120" required>
+
+                    <label for="description">作品介紹</label>
+                    <textarea id="description" rows="6" maxlength="10000"
+                        placeholder="介紹作品的故事、創作理念、使用工具或你的負責內容"></textarea>
 
                     <label for="category">作品分類</label>
                     <select id="category" required>
@@ -157,6 +162,19 @@
                 確認
             </button>
         </div>
+    </dialog>
+    <dialog id="descriptionDialog" aria-labelledby="descriptionDialogTitle">
+        <form id="descriptionForm">
+            <h2 id="descriptionDialogTitle">編輯作品介紹</h2>
+            <p id="descriptionWorkTitle"></p>
+            <label for="editDescription">作品介紹</label>
+            <textarea id="editDescription" rows="10" maxlength="10000"></textarea>
+            <p id="descriptionError" role="alert"></p>
+            <div class="dialog-actions">
+                <button type="button" id="cancelDescription">取消</button>
+                <button type="submit" id="saveDescription" class="confirm-delete-button">儲存</button>
+            </div>
+        </form>
     </dialog>
     <script type="module" src="js/admin.js"></script>
 </body>

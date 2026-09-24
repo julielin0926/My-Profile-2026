@@ -4,104 +4,45 @@ const list = document.getElementById("worksList");
 const status = document.getElementById("worksStatus");
 const category = list.dataset.category;
 
-function addText(parent, tag, value) {
-    const element = document.createElement(tag);
-    element.textContent = value;
-    parent.append(element);
-    return element;
-}
-
-function getHttpsUrl(value) {
-    try {
-        const url = new URL(value);
-
-        if (
-            url.protocol === "https:" &&
-            !url.username &&
-            !url.password
-        ) {
-            return url.href;
-        }
-    } catch {
-        // 不是完整網址時，回傳 null。
-    }
-
-    return null;
-}
-
-function getImageUrl(value) {
-    if (typeof value !== "string") {
-        return null;
-    }
-
-    const httpsUrl = getHttpsUrl(value);
-
-    if (httpsUrl) {
-        return httpsUrl;
-    }
-
-    if (
-        value.startsWith("images/") &&
-        value.length > 7 &&
-        !/[\\%?#]/.test(value) &&
-        !value.includes("..")
-    ) {
-        return new URL(value, window.location.href).href;
-    }
-
-    return null;
-}
+import { addText, getImageUrl } from "./work-media.js";
 
 function createCard(work) {
     const card = document.createElement("article");
     card.className = "work-card";
-
     addText(card, "h3", work.title);
 
+    const videoId = work.youTubeVideoId;
+    const imageUrl = work.category === "game"
+        ? getImageUrl(work.imageUrl)
+        : (/^[A-Za-z0-9_-]{11}$/.test(videoId ?? "")
+            ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg` : null);
+
+    if (imageUrl) {
+        const image = document.createElement("img");
+        image.src = imageUrl;
+        image.alt = work.title;
+        image.loading = "lazy";
+        image.addEventListener("error", () => {
+            image.hidden = true;
+            const fallback = document.createElement("p");
+            fallback.className = "work-cover-placeholder";
+            fallback.textContent = "封面暫時無法顯示";
+            image.after(fallback);
+        }, { once: true });
+        card.append(image);
+    } else {
+        addText(card, "p", "尚未提供封面").className = "work-cover-placeholder";
+    }
     if (work.category === "game") {
-        const imageUrl = getImageUrl(work.imageUrl);
-
-        if (imageUrl) {
-            const image = document.createElement("img");
-            image.src = imageUrl;
-            image.alt = work.title;
-            image.loading = "lazy";
-            card.append(image);
-        }
-
         addText(card, "p", work.genre ?? "");
         addText(card, "p", String(work.year ?? ""));
-
-        const externalUrl = getHttpsUrl(work.externalUrl);
-
-        if (externalUrl) {
-            const link = document.createElement("a");
-            link.href = externalUrl;
-            link.textContent = work.buttonText || "查看作品";
-            link.className = "button";
-            link.target = "_blank";
-            link.rel = "noopener noreferrer";
-            card.append(link);
-        }
-    } else {
-        const videoId = work.youTubeVideoId;
-
-        if (/^[A-Za-z0-9_-]{11}$/.test(videoId ?? "")) {
-            const iframe = document.createElement("iframe");
-
-            iframe.src = `https://www.youtube.com/embed/${videoId}`;
-            iframe.title = work.title;
-            iframe.loading = "lazy";
-            iframe.allow =
-                "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-            iframe.allowFullscreen = true;
-
-            card.append(iframe);
-        } else {
-            addText(card, "p", "這件作品尚無有效的影片資料。");
-        }
     }
-
+    const link = document.createElement("a");
+    link.href = `work.html?id=${encodeURIComponent(work.id)}`;
+    link.textContent = "了解更多";
+    link.className = "button";
+    link.setAttribute("aria-label", `了解更多：${work.title}`);
+    card.append(link);
     return card;
 }
 

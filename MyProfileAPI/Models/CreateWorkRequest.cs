@@ -8,6 +8,9 @@ public class CreateWorkRequest : IValidatableObject
     [MaxLength(120)]
     public string Title { get; set; } = "";
 
+    [MaxLength(10000)]
+    public string Description { get; set; } = "";
+
     [Required]
     [RegularExpression("^(animation|video|game)$")]
     public string Category { get; set; } = "";

@@ -77,6 +77,7 @@ public class WorksController : ControllerBase
         var work = new Work
         {
             Title = request.Title.Trim(),
+            Description = request.Description.Trim(),
             Category = request.Category,
 
             YouTubeVideoId = isGame
@@ -103,6 +104,19 @@ public class WorksController : ControllerBase
         );
     }
 
+
+    [Authorize]
+    [HttpPut("{id:int}/description")]
+    public async Task<IActionResult> UpdateDescription(
+        int id, UpdateWorkDescriptionRequest request)
+    {
+        var work = await _context.Works.FindAsync(id);
+        if (work == null) return NotFound();
+
+        work.Description = request.Description.Trim();
+        await _context.SaveChangesAsync();
+        return NoContent();
+    }
 
     // 刪除作品必須登入。
     [Authorize]

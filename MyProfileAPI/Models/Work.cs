@@ -10,6 +10,9 @@ public class Work
     [MaxLength(120)]
     public string Title { get; set; } = "";
 
+    [MaxLength(10000)]
+    public string Description { get; set; } = "";
+
     [Required]
     [MaxLength(20)]
     [RegularExpression("^(animation|video|game)$")]

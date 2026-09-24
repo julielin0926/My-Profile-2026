@@ -42,3 +42,13 @@
     border: 0;
     border-radius: 6px;
 }
+.work-card > .button { margin-top: 20px; }
+.work-cover-placeholder {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 16 / 9;
+    background: #f5f5f5;
+    color: #555;
+    border-radius: 6px;
+}
+.work-card img[hidden] { display: none; }

@@ -4,17 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Experience | My Profile</title>
+    <title>作品介紹 | My Profile</title>
     <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/experience.css">
+    <link rel="stylesheet" href="css/work-detail.css">
+    <link rel="stylesheet" href="css/works.css">
     <link rel="stylesheet" href="css/responsive.css">
     <script src="js/navigation.js" defer></script>
 </head>
 
 <body>
-
-<!-- 導覽列區塊 --> 
-        <h1>Experience | My Profile</h1>
+    
+<!-- 導覽列區塊 -->  
+    <h1>作品介紹 | My Profile</h1>
         <nav>
             <ul>
                 <li><a href="index.html">首頁</a></li>
@@ -56,6 +57,25 @@
                 <li><a href="login.html">作者專區</a></li>
             </ul>
         </nav>
+
+
+
+    <!-- 動畫作品區塊 -->
+    <main>
+        <section class="work-detail">
+            <a id="backToWorks" href="index.html">回首頁</a>
+            <p id="detailStatus" role="status">作品載入中…</p>
+            <article id="workDetail" hidden>
+                <h2 id="workTitle"></h2>
+                <p id="workMeta"></p>
+                <div id="workMedia"></div>
+                <h3>作品介紹</h3>
+                <p id="workDescription" class="work-description"></p>
+                <div id="workLinks"></div>
+            </article>
+        </section>
+    </main>
+    <script type="module" src="js/work-detail.js"></script>
 
 </body>
 
