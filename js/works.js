@@ -1,4 +1,4 @@
-import { API_BASE_URL } from "./api.js";
+import { getPublicWorks } from "./public-data.js";
 
 const list = document.getElementById("worksList");
 const status = document.getElementById("worksStatus");
@@ -50,34 +50,26 @@ async function loadWorks() {
     status.textContent = "作品載入中…";
 
     try {
-        const response = await fetch(
-            `${API_BASE_URL}/api/Works?category=${encodeURIComponent(category)}`
+        const allWorks = await getPublicWorks();
+
+        const works = allWorks.filter(
+            work => work.category === category
         );
 
-        if (!response.ok) {
-            throw new Error(`讀取失敗，HTTP ${response.status}`);
+                list.replaceChildren();
+
+                for (const work of works) {
+                    list.append(createCard(work));
+                }
+
+                status.textContent = works.length === 0
+                    ? "目前還沒有作品。"
+                    : "";
+            } catch (error) {
+                console.error(error);
+                status.textContent =
+                    "目前無法載入公開作品資料，請稍後重新整理。";
+            }
         }
-
-        const works = await response.json();
-
-        if (!Array.isArray(works)) {
-            throw new Error("API 回傳的作品格式不正確");
-        }
-
-        list.replaceChildren();
-
-        for (const work of works) {
-            list.append(createCard(work));
-        }
-
-        status.textContent = works.length === 0
-            ? "目前還沒有作品。"
-            : "";
-    } catch (error) {
-        console.error(error);
-        status.textContent =
-            "目前無法載入作品，請確認 API 已啟動後重新整理。";
-    }
-}
 
 loadWorks();

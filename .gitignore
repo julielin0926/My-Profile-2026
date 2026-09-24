@@ -1,0 +1,19 @@
+# .NET 建置產物
+**/bin/
+**/obj/
+
+# 本機原始上傳圖片
+MyProfileAPI/App_Data/
+
+# 本機設定與資料庫備份
+MyProfileAPI/appsettings.Local.json
+*.bak
+*.mdf
+*.ldf
+
+# 靜態網站建置結果
+_site/
+
+# 編輯器與作業系統暫存
+.vs/
+Thumbs.db

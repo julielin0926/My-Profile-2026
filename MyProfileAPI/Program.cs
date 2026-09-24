@@ -71,6 +71,27 @@ builder.Services
 
 var app = builder.Build();
 
+if (args.Contains("--export-public"))
+{
+    if (!app.Environment.IsDevelopment())
+    {
+        throw new InvalidOperationException(
+            "請在本機開發環境執行公開資料匯出。");
+    }
+
+    using var scope = app.Services.CreateScope();
+
+    var context = scope.ServiceProvider
+        .GetRequiredService<AppDbContext>();
+
+    await PublicSiteExporter.RunAsync(
+        context,
+        app.Environment.ContentRootPath
+    );
+
+    return;
+}
+
 
 // 原本建立作者的區塊
 if (args.Contains("--seed-author"))

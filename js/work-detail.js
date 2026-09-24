@@ -1,4 +1,8 @@
-import { API_BASE_URL } from "./api.js";
+import {
+    getPublicWorks,
+    getPublicImageUrl
+} from "./public-data.js";
+
 import { getHttpsUrl, getImageUrl } from "./work-media.js";
 
 const status = document.getElementById("detailStatus");
@@ -16,13 +20,13 @@ async function loadDetail() {
         return;
     }
     try {
-        const response = await fetch(`${API_BASE_URL}/api/Works/${id}`);
-        if (response.status === 404) {
-            status.textContent = "找不到這件作品，可能已經被刪除。";
+        const works = await getPublicWorks();
+        const work = works.find(item => item.id === Number(id));
+
+        if (!work) {
+            status.textContent = "找不到這件作品，可能已經被移除。";
             return;
         }
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        const work = await response.json();
         const category = categories[work.category];
         if (!category) throw new Error("作品分類無效");
 
@@ -71,44 +75,40 @@ async function loadDetail() {
         }
         status.textContent = "";
         detail.hidden = false;
-        loadWorkImages(work.id);
+        loadWorkImages(work.images ?? []);
     } catch (error) {
         console.error(error);
-        status.textContent = "目前無法載入作品，請確認 API 已啟動後重新整理。";
+        status.textContent = status.textContent ="目前無法載入公開作品資料，請稍後重新整理。";;
     }
 }
 
-async function loadWorkImages(workId) {
+function loadWorkImages(images) {
     const section = document.getElementById("workHighlights");
     const list = document.getElementById("workImagesList");
     const imageStatus = document.getElementById("workImagesStatus");
 
-    try {
-        const response = await fetch(
-            `${API_BASE_URL}/api/Works/${workId}/images`
-        );
+    list.replaceChildren();
+    imageStatus.textContent = "";
+    section.hidden = images.length === 0;
 
-        if (!response.ok) {
-            throw new Error(`HTTP ${response.status}`);
+    for (const image of images) {
+        const imageUrl = getPublicImageUrl(image.url);
+
+        if (!imageUrl) {
+            imageStatus.textContent = "部分圖片的路徑格式不正確。";
+            continue;
         }
 
-        const images = await response.json();
+        const img = document.createElement("img");
+        img.src = imageUrl;
+        img.alt = image.caption || "作品精華畫面";
+        img.loading = "lazy";
 
-        list.replaceChildren();
-        section.hidden = images.length === 0;
-        imageStatus.textContent = "";
+        img.addEventListener("error", () => {
+            imageStatus.textContent = "部分精華圖片暫時無法載入。";
+        }, { once: true });
 
-        for (const image of images) {
-            const img = document.createElement("img");
-            img.src = new URL(image.url, API_BASE_URL).href;
-            img.alt = image.caption || "作品精華畫面";
-            img.loading = "lazy";
-            list.append(img);
-        }
-    } catch (error) {
-        console.error(error);
-        section.hidden = false;
-        imageStatus.textContent = "精華圖片暫時無法載入。";
+        list.append(img);
     }
 }
 
