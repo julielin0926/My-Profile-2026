@@ -148,6 +148,7 @@ fs.cpSync(
 );
 
 copyFile("Data/works.json");
+copyFile("downloads/resume-2026.pdf");
 copyFile("Data/experiences.json");
 
 for (const imagePath of publicImagePaths) {

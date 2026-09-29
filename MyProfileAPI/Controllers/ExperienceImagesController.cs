@@ -108,8 +108,8 @@ public class ExperienceImagesController : ControllerBase
 
     [Authorize]
     [HttpPost]
-    [RequestSizeLimit(6 * 1024 * 1024)]
-    [RequestFormLimits(MultipartBodyLengthLimit = 6 * 1024 * 1024)]
+    [RequestSizeLimit(11 * 1024 * 1024)]
+    [RequestFormLimits(MultipartBodyLengthLimit = 11 * 1024 * 1024)]
     public async Task<IActionResult> Upload(
         int experienceId,
         [FromForm] UploadExperienceImageRequest request)
@@ -121,11 +121,11 @@ public class ExperienceImagesController : ControllerBase
         }
 
         if (request.File.Length == 0 ||
-            request.File.Length > 5 * 1024 * 1024)
+            request.File.Length > 10 * 1024 * 1024)
         {
             return BadRequest(new
             {
-                message = "圖片不可為空，每張上限 5 MB。"
+                message = "圖片不可為空，每張上限 10 MB。"
             });
         }
 

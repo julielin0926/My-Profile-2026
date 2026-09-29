@@ -14,5 +14,5 @@ public class UploadExperienceImageRequest
     public string Kind { get; set; } = "";
 
     [StringLength(200)]
-    public string Caption { get; set; } = "";
+public string? Caption { get; set; }
 }

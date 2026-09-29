@@ -12,12 +12,6 @@
     "sortOrder": 1,
     "images": [
       {
-        "id": 1,
-        "kind": "activity-logo",
-        "caption": "\u5C55\u89BD\u4E3B\u8996\u89BA",
-        "url": "Data/experience-images/b873cc210c65424f9c952d8abb5cb4ba.jpg"
-      },
-      {
         "id": 2,
         "kind": "work-1",
         "caption": "\u5DE5\u4F5C\u7D00\u93041",
@@ -36,10 +30,92 @@
         "url": "Data/experience-images/4e984d0b35fd46308f8d66a96655079c.jpg"
       },
       {
-        "id": 5,
+        "id": 10,
         "kind": "cover",
         "caption": "\u5C0F\u5361\u5C01\u9762",
-        "url": "Data/experience-images/1b58d7d91c79409abf2a799c54809719.jpg"
+        "url": "Data/experience-images/1d0dac3f35c94c3e965d45076db82830.jpg"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "\u6293\u5468\u6D3B\u52D5",
+    "summary": "\u64D4\u4EFB\u53E4\u79AE\u6293\u5468\u6D3B\u52D5\u4E3B\u6301\uFF0C\u8CA0\u8CAC\u6D3B\u52D5\u6D41\u7A0B\u5F15\u5C0E\u3001\u53E4\u8E5F\u5C0E\u89BD\u53CA\u73FE\u5834\u4E92\u52D5\u3002",
+    "company": "\u81FA\u7063\u6C11\u4FD7\u6587\u7269\u9928",
+    "role": "\u6D3B\u52D5\u4F01\u5283\u5DE5\u8B80\u751F",
+    "period": "2024/3- 2026/6",
+    "workContent": "\u64D4\u4EFB\u53E4\u79AE\u6293\u5468\u6D3B\u52D5\u4E3B\u6301\uFF0C\u8CA0\u8CAC\u6D3B\u52D5\u6D41\u7A0B\u5F15\u5C0E\u3001\u53E4\u8E5F\u5C0E\u89BD\u53CA\u73FE\u5834\u4E92\u52D5\uFF0C\u7D2F\u7A4D\u89AA\u5B50\u6D3B\u52D5\u4E3B\u6301\u8207\u81E8\u5834\u61C9\u8B8A\u7D93\u9A57\uFF1B\u719F\u6089\u9928\u820D\u6B77\u53F2\u80CC\u666F\u8207\u5EFA\u7BC9\u7279\u8272\uFF0C\u80FD\u5411\u6C11\u773E\u9032\u884C\u5C0E\u89BD\u89E3\u8AAA\uFF0C\u4E26\u8CA0\u8CAC\u6D3B\u52D5\u651D\u5F71\uFF0C\u80FD\u5728\u5E7C\u5152\u52D5\u614B\u6D3B\u52D5\u4E2D\u5373\u6642\u6355\u6349\u81EA\u7136\u3001\u751F\u52D5\u7684\u5F71\u50CF\u756B\u9762\u3002",
+    "introductionHeading": "\u6D3B\u52D5\u4ECB\u7D39",
+    "introduction": "\u81FA\u7063\u6C11\u4FD7\u6587\u7269\u9928\u53E4\u79AE\u6293\u5468\u6D3B\u52D5\u4EE5\u81FA\u7063\u50B3\u7D71\u751F\u547D\u79AE\u4FD7\u70BA\u4E3B\u984C\uFF0C\u900F\u904E\u667A\u6167\u947C\u7948\u798F\u3001\u8E29\u7D05\u9F9C\u3001\u7A7F\u8D8A\u8070\u660E\u9580\u3001\u53E4\u79AE\u6293\u5468\u3001\u8DB3\u62D3\u5370\u53CA\u6236\u5916\u53E4\u8E5F\u5C0E\u89BD\u7B49\u9AD4\u9A57\u6D41\u7A0B\uFF0C\u8B93\u5BB6\u9577\u966A\u4F34\u5E7C\u5152\u5B8C\u6210\u5468\u6B72\u5100\u5F0F\uFF0C\u611F\u53D7\u50B3\u7D71\u6587\u5316\u7684\u795D\u798F\u8207\u751F\u547D\u79AE\u4FD7\u7684\u6587\u5316\u610F\u6DB5\u3002",
+    "sortOrder": 2,
+    "images": [
+      {
+        "id": 7,
+        "kind": "work-1",
+        "caption": "\u5DE5\u4F5C\u7D00\u93041",
+        "url": "Data/experience-images/90cc6870a911446b8adf884f26a5227b.jpg"
+      },
+      {
+        "id": 8,
+        "kind": "work-2",
+        "caption": "\u5DE5\u4F5C\u7D00\u93042",
+        "url": "Data/experience-images/a0b2eb34868f4522b095342751f65126.jpg"
+      },
+      {
+        "id": 9,
+        "kind": "work-3",
+        "caption": "\u5DE5\u4F5C\u7D00\u93043",
+        "url": "Data/experience-images/dbd8c9c07b6d4e9ca49b37a0a12bedad.jpg"
+      },
+      {
+        "id": 19,
+        "kind": "cover",
+        "caption": "\u5C01\u9762",
+        "url": "Data/experience-images/a79a5e1ba49548b19a7d775da3ab3c4f.png"
+      },
+      {
+        "id": 20,
+        "kind": "review",
+        "caption": "",
+        "url": "Data/experience-images/3ca86ca20c114e8e86d77a6d06450291.png"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "\u5C08\u6848\u5354\u4F5C",
+    "summary": "\u8CA0\u8CAC\u300A\u300C\u9E7F\u6E2F\u5BE6\u9A57\u5DE5\u5EE0\u300D\u57FA\u5730\u71DF\u904B\u524D\u7F6E\u8A08\u756B\u59D4\u8A17\u670D\u52D9\u63A1\u8CFC\u6848\uFF0D\u7C21\u6613\u8CC7\u6599\u5EAB\u300B\u5168\u66F8\u6821\u7A3F\u3001\u7248\u9762\u6821\u5C0D\u53CA\u8CC7\u8A0A\u8996\u89BA\u5316\u8A2D\u8A08",
+    "company": "\u57CE\u88E1\u9867\u554F\u80A1\u4EFD\u6709\u9650\u516C\u53F8",
+    "role": "\u5C08\u6848\u5DE5\u8B80\u751F",
+    "period": "2025/11 - 2026/3",
+    "workContent": "\u8CA0\u8CAC\u5168\u66F8\u6821\u7A3F\u3001\u7248\u9762\u6821\u5C0D\u53CA\u8CC7\u8A0A\u8996\u89BA\u5316\u8A2D\u8A08\uFF0C\u5C07\u6B77\u53F2\u6587\u737B\u8207\u5DE5\u85DD\u8CC7\u6599\u6574\u7406\u70BA\u6642\u9593\u8EF8\u3001\u95DC\u806F\u5716\u53CA\u5730\u5716\u7B49\u5716\u8868\uFF0C\u4E26\u5EFA\u7F6E\u300C\u9E7F\u6E2F\u5DE5\u85DD\u7522\u696D\u751F\u614B\u7CFB\u8CC7\u6599\u5EAB\u300D\u96FB\u5B50\u8CC7\u6599\u3002\u53E6\u53C3\u8207\u9E7F\u6E2F\u5DE5\u85DD\u7522\u696D\u751F\u614B\u7CFB\u4EA4\u6D41\u5EA7\u8AC7\u6703\uFF0C\u5354\u52A9\u6703\u8B70\u7D00\u9304\u3001\u73FE\u5834\u63A5\u5F85\u53CA\u5C08\u6848\u884C\u653F\u652F\u63F4\uFF0C\u7D2F\u7A4D\u51FA\u7248\u7DE8\u8F2F\u3001\u8CC7\u6599\u5EFA\u7F6E\u8207\u8DE8\u55AE\u4F4D\u5408\u4F5C\u7D93\u9A57\u3002",
+    "introductionHeading": "\u5C08\u6848\u5167\u5BB9",
+    "introduction": "\u300A\u300C\u9E7F\u6E2F\u5BE6\u9A57\u5DE5\u5EE0\u300D\u57FA\u5730\u71DF\u904B\u524D\u7F6E\u8A08\u756B\u59D4\u8A17\u670D\u52D9\u63A1\u8CFC\u6848\uFF0D\u7C21\u6613\u8CC7\u6599\u5EAB\u300B\u70BA\u9E7F\u6E2F\u5DE5\u85DD\u805A\u843D\u76F8\u95DC\u7814\u7A76\u5C08\u6848\uFF0C\u5167\u5BB9\u6DB5\u84CB\u5DE5\u85DD\u7522\u696D\u767C\u5C55\u3001\u6B77\u53F2\u6CBF\u9769\u3001\u91CD\u8981\u5F71\u50CF\u7D00\u9304\u53CA\u5DE5\u85DD\u751F\u614B\u8CC7\u6599\uFF0C\u900F\u904E\u7CFB\u7D71\u5316\u6574\u7406\u5EFA\u7ACB\u5B8C\u6574\u8CC7\u6599\u5EAB\uFF0C\u63D0\u4F9B\u5F8C\u7E8C\u6587\u5316\u4FDD\u5B58\u8207\u57FA\u5730\u71DF\u904B\u898F\u5283\u53C3\u8003\u3002",
+    "sortOrder": 3,
+    "images": [
+      {
+        "id": 15,
+        "kind": "cover",
+        "caption": "\u5C01\u9762",
+        "url": "Data/experience-images/ef077686cd63447791d39e7d96b065e6.png"
+      },
+      {
+        "id": 16,
+        "kind": "work-1",
+        "caption": "\u5DE5\u4F5C\u7D00\u93041",
+        "url": "Data/experience-images/0bcd031d868347d6885814f942cac51b.jpg"
+      },
+      {
+        "id": 17,
+        "kind": "work-2",
+        "caption": "\u5DE5\u4F5C\u7D00\u93042",
+        "url": "Data/experience-images/3c76c73b5a3a42e3b137c3f131eccf95.jpg"
+      },
+      {
+        "id": 18,
+        "kind": "work-3",
+        "caption": "\u5DE5\u4F5C\u7D00\u93043",
+        "url": "Data/experience-images/0a86564f09f84155915b929f7027a15e.jpg"
       }
     ]
   }

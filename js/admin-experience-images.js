@@ -189,9 +189,9 @@ export function createExperienceImageManager({
                 return;
             }
 
-            if (file.size === 0 || file.size > 5 * 1024 * 1024) {
+            if (file.size === 0 || file.size > 10 * 1024 * 1024) {
                 imageStatus.textContent =
-                    "圖片不可為空，每張不得超過 5 MB。";
+                    "圖片不可為空，每張不得超過 10 MB。";
                 return;
             }
 

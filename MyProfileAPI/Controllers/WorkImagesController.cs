@@ -101,8 +101,8 @@ public class WorkImagesController : ControllerBase
     // 一次接收一張；前端可逐張上傳多張。
     [Authorize]
     [HttpPost]
-    [RequestSizeLimit(6 * 1024 * 1024)]
-    [RequestFormLimits(MultipartBodyLengthLimit = 6 * 1024 * 1024)]
+    [RequestSizeLimit(11 * 1024 * 1024)]
+    [RequestFormLimits(MultipartBodyLengthLimit = 11 * 1024 * 1024)]
     public async Task<IActionResult> Upload(
         int workId,
         [FromForm] IFormFile file)
@@ -112,11 +112,11 @@ public class WorkImagesController : ControllerBase
             return NotFound(new { message = "作品不存在。" });
         }
 
-        if (file.Length == 0 || file.Length > 5 * 1024 * 1024)
+        if (file.Length == 0 || file.Length > 10 * 1024 * 1024)
         {
             return BadRequest(new
             {
-                message = "每張圖片需大於 0 Bytes，且不得超過 5 MB。"
+                message = "每張圖片需大於 0 Bytes，且不得超過 10 MB。"
             });
         }
 

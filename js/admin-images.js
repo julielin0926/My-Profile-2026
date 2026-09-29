@@ -50,8 +50,8 @@ export async function uploadImages(workId, files) {
 
     for (const file of files) {
         try {
-            if (file.size === 0 || file.size > 5 * 1024 * 1024) {
-                throw new Error("圖片不可為空，且每張不得超過 5 MB。");
+            if (file.size === 0 || file.size > 10 * 1024 * 1024) {
+                throw new Error("圖片不可為空，且每張不得超過 10 MB。");
             }
 
             const data = new FormData();

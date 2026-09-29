@@ -21,8 +21,8 @@
 /* ==================== 個人照片 ==================== */
 
 .profile-image img {
-    width: 200px;
-    height: 250px;
+    width: 100px;
+    height: 150px;
     object-fit: cover;
     border-radius: 10%;
 }

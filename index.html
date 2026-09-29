@@ -8,14 +8,17 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/home-design.css">
     <script src="js/navigation.js" defer></script>
 </head>
 
-<body>
+<body class="home-page">
     <header>
 
     <!-- 導覽列區塊 --> 
-        <h1>My Profile</h1>
+        <p class="home-brand">
+            <a href="index.html">ZIYU LIN<span>PORTFOLIO</span></a>
+        </p>
         <nav>
             <ul>
                 <li><a href="index.html">首頁</a></li>
@@ -58,62 +61,81 @@
             </ul>
         </nav>
 
+        </header>
 
+        <main id="mainContent">
 
-    <!-- 關於我 -->
-        <section class="hero">
-            <div class="profile-image">
-                <img src="images/profile.jpg" alt="林子郁個人照">
-            </div>
-            <div class="profile-text">
-                <h2>林子郁</h2>
-                <p>臺中科技大學 多媒體設計系</p>
-                <p>Game Developer / Web Developer</p>
-            </div>
-        </section>
-        <section class="intro">
-            <h2>關於我</h2>
-            <p>
-                我是林子郁，2026年畢業於國立臺中科技大學多媒體設計系計系。<br>
-                高中就讀臺北市立內湖高工電子科，因對程式設計與遊戲開發深感興趣，<br>
-                大學持續培養設計、互動媒體及程式開發能力。<br>
-            </p>
-            <a href="about.html" class="button">了解更多</a>
-        </section>
-
-
-
-    <!-- 遊戲作品區塊 -->
-        <section class="featured">
-            <h2>代表作</h2>
-            <div class="game-list">
-                <div class="game-card">
-                    <img src="images/xinshengmimi.png" alt="心聲密語">
-                    <h3>心聲密語</h3>
-                    <p>3D Game</p>
-                    <p>2026</p>
-                    <a href="https://drive.google.com/drive/folders/1yTG1GwC1kpS2oyGAruwCzZpNf6i1fbY-" class="button">前往下載</a>
-                </div>
-
-                <div class="game-card">
-                    <img src="images/yulinzhizhan.png" alt="雨林之戰">
-                    <h3>雨林之戰</h3>
-                    <p>2D Web Game</p>
-                    <p>2023</p>
-                    <a href="https://julielin0926.github.io/game/game/index.html" class="button">前往試玩</a>
-                </div>
-
-                <div class="game-card">
-                    <img src="images/zhongguo.chuzhengji.png" alt="眾果出征紀">
-                    <h3>眾果出征紀</h3>
-                    <p>2D Web Game</p>
-                    <p>2023</p>
-                    <a href="https://julielin0926.github.io/game/game2/index.html" class="button">前往試玩</a>
+        <!-- 首屏 -->
+        <section class="home-hero" aria-labelledby="homeTitle">
+            <div class="home-hero-copy">
+                <p class="home-eyebrow">HELLO, I'M ZIYU LIN</p>
+                <h1 id="homeTitle" class="home-title">
+                    <span>DESIGN &amp;</span> DEVELOPMENT
+                </h1>
+                <p class="home-name">林子郁</p>
+                <p class="home-lead">從設計到實作，探索互動的可能。</p>
+                <ul class="home-skills" aria-label="專長領域">
+                    <li>遊戲開發</li>
+                    <li>互動設計</li>
+                    <li>網頁能力</li>
+                    <li>伺服器維護</li>
+                </ul>
+                <div class="home-actions">
+                    <a href="downloads/resume-2026.pdf" download="履歷2026.pdf" class="home-button">下載履歷 PDF <span aria-hidden="true">↓</span></a>
+                    <a href="about.html" class="home-text-link">關於我 <span aria-hidden="true">→</span></a>
                 </div>
             </div>
+            <div class="home-portrait">
+                <img src="images/home-portrait.jpg" alt="林子郁手持甜甜圈的個人照"
+                     width="2664" height="3552" fetchpriority="high">
+                <p class="home-photo-note">A LITTLE ABOUT ME.</p>
+            </div>
         </section>
-    </header>
 
+        <!-- 簡單個人介紹 -->
+        <section class="home-about" aria-labelledby="homeAboutTitle">
+            <div class="home-about-photo">
+                <img src="images/profile.jpg" alt="林子郁生活照" loading="lazy">
+            </div>
+            <div class="home-about-copy">
+                <p class="home-eyebrow">ABOUT ME</p>
+                <h2 id="homeAboutTitle">相信做得到，<br>讓努力有回響。</h2>
+                <p>我是林子郁，2026 年畢業於國立臺中科技大學多媒體設計系，高中就讀臺北市立內湖高工電子科。</p>
+                <p>從遊戲開發、互動設計到網頁與伺服器維護，我持續累積設計與技術實作經驗，也透過活動及專案協作，學習把想法落實。</p>
+                <a href="about.html" class="home-text-link">更多關於我 <span aria-hidden="true">→</span></a>
+            </div>
+        </section>
+
+
+
+        <section class="home-showcase" id="featuredWorks" aria-labelledby="worksTitle">
+            <p class="home-eyebrow">SELECTED WORKS</p>
+            <h2 id="worksTitle">精選作品</h2>
+            <div class="home-carousel" data-carousel="works">
+                <div class="carousel-actions">
+                    <button type="button" data-prev aria-label="上一件作品" disabled>←</button>
+                    <button type="button" data-next aria-label="下一件作品" disabled>→</button>
+                </div>
+                <p class="carousel-status" role="status">作品載入中…</p>
+                <div class="carousel-track" tabindex="0" role="region" aria-label="精選作品，可左右滑動"></div>
+            </div>
+        </section>
+        <section class="home-showcase" aria-labelledby="experiencesTitle">
+            <p class="home-eyebrow">EXPERIENCE</p>
+            <h2 id="experiencesTitle">工作經驗</h2>
+            <a class="home-text-link" href="experience.html">查看所有工作經驗 →</a>
+            <div class="home-carousel" data-carousel="experiences">
+                <div class="carousel-actions">
+                    <button type="button" data-prev aria-label="上一筆工作經驗" disabled>←</button>
+                    <button type="button" data-next aria-label="下一筆工作經驗" disabled>→</button>
+                </div>
+                <p class="carousel-status" role="status">工作經驗載入中…</p>
+                <div class="carousel-track" tabindex="0" role="region" aria-label="工作經驗，可左右滑動"></div>
+            </div>
+        </section>
+        </main>
+
+<script type="module" src="js/main.js"></script>
 </body>
 
 </html>
