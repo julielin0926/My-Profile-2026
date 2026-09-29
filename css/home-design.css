@@ -85,11 +85,9 @@
 .home-photo-note { margin: 12px 0 0; text-align: center; color: var(--home-ink); font-size: 10px; letter-spacing: 0.2em; }
 
 .home-page .home-about {
-    display: grid;
-    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-    align-items: center;
-    gap: clamp(32px, 6vw, 88px);
-    width: min(100% - 48px, 1060px);
+    display: block;
+    text-align: center;
+    width: min(100% - 48px, 800px);
     margin: 0 auto 80px;
     padding: 48px 0;
     border-top: 1px solid var(--home-line);

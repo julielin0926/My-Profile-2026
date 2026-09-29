@@ -34,9 +34,6 @@ async function loadDetail() {
         document.getElementById("workTitle").textContent = work.title;
         document.getElementById("workMeta").textContent =
             [category.name, work.genre, work.year].filter(Boolean).join(" ｜ ");
-        const back = document.getElementById("backToWorks");
-        back.href = category.page;
-        back.textContent = `← 返回${category.name}`;
         document.getElementById("workDescription").textContent =
             work.description?.trim() || "作者尚未填寫這件作品的介紹。";
 

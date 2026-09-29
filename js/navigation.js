@@ -24,6 +24,21 @@ document.querySelectorAll("nav").forEach((nav, navIndex) => {
     }
     nav.prepend(toggle);
 
+    // 記錄導覽高度，供錨點留白及手機選單高度使用。
+    function reserveNavigationSpace() {
+        const styles = getComputedStyle(nav);
+        const height = compactNavigation.matches
+            ? toggle.getBoundingClientRect().height + parseFloat(styles.paddingTop) + parseFloat(styles.paddingBottom) + 1
+            : nav.getBoundingClientRect().height;
+        document.documentElement.style.setProperty("--site-nav-height", `${Math.ceil(height)}px`);
+    }
+    new ResizeObserver(reserveNavigationSpace).observe(nav);
+    reserveNavigationSpace();
+    const currentPage = location.pathname.split("/").pop() || "index.html";
+    menu.querySelectorAll(":scope > li > a").forEach(link => {
+        if (link.getAttribute("href") === currentPage) link.setAttribute("aria-current", "page");
+    });
+
     const submenus = [];
     function setSubmenu(entry, open) {
         entry.item.classList.toggle("submenu-open", open);

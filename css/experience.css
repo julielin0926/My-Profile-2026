@@ -58,7 +58,7 @@
 
 .experience-cover img {
     display: block;
-    width: min(100%, 600px);
+    width: min(100%, 0px);
     height: auto;
     max-height: 500px;
     object-fit: contain;

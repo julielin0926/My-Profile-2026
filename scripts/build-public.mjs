@@ -167,6 +167,7 @@ fs.writeFileSync(
     <title>作者專區 | My Profile</title>
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/site-theme.css">
 </head>
 <body>
     <main>

@@ -1,0 +1,62 @@
+.about-page .about-page-title {
+    width: min(100% - 48px, 1120px);
+    margin: 28px auto;
+    padding: 0;
+    text-align: left;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(42px, 7vw, 80px);
+    font-weight: normal;
+    letter-spacing: -0.07em;
+    line-height: 1.2;
+}
+.about-page-title > span { display: inline-block; margin-left: 12px; font-size: 0.65em; vertical-align: middle; }
+.about-page-title > small { margin-left: 24px; font: 14px Arial, "Microsoft JhengHei", sans-serif; letter-spacing: 0.12em; }
+#about.about-sheet {
+    display: grid;
+    grid-template-columns: minmax(0, 1.65fr) minmax(0, 0.85fr);
+    align-items: start;
+    gap: clamp(36px, 6vw, 90px);
+    width: min(100% - 48px, 1120px);
+    max-width: 1120px;
+    margin: 44px auto 72px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+}
+.about-information, .about-person { min-width: 0; }
+#about .resume-section { margin: 0 0 38px; padding: 0; }
+#about .resume-section h2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    margin: 0 0 16px;
+    font: normal clamp(24px, 3vw, 30px) Georgia, "Times New Roman", serif;
+}
+#about .resume-section h2 > span { font: 13px Arial, "Microsoft JhengHei", sans-serif; color: var(--site-muted); letter-spacing: 0.1em; }
+.profile-facts { margin: 0 0 22px; }
+.profile-facts > div { display: grid; grid-template-columns: 90px minmax(0, 1fr); gap: 20px; padding: 10px 0; border-bottom: 1px solid var(--site-line); font-size: 14px; }
+.profile-facts dt { color: var(--site-muted); }
+.profile-facts dd { margin: 0; text-align: right; }
+#about .about-introduction { font-size: 14px; color: var(--site-muted); line-height: 1.9; }
+.resume-entry { padding: 14px 0; border-bottom: 1px solid var(--site-line); }
+.resume-entry-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+#about .resume-entry h3 { margin: 0; padding: 0; border: 0; font-size: 15px; font-weight: bold; }
+.resume-date { flex-shrink: 0; color: var(--site-muted); font-size: 12px; }
+#about .resume-entry p { margin: 6px 0 0; color: var(--site-muted); font-size: 14px; line-height: 1.8; }
+.about-person { text-align: center; }
+#about .about-person-label { margin: 0 0 16px; font-size: 14px; letter-spacing: 0.15em; }
+.about-person img { display: block; width: 100%; height: auto; border-radius: 2px; }
+#about .about-person-name { margin: 20px 0 6px; font: 24px Georgia, "Times New Roman", serif; letter-spacing: 0.15em; }
+#about .about-person-motto { font-size: 15px; }
+.about-person-contact { display: grid; gap: 4px; margin: 24px 0; font-size: 13px; }
+.about-person-contact > span { color: var(--site-muted); letter-spacing: 0.12em; }
+.about-person-contact a { overflow-wrap: anywhere; }
+@media (max-width: 700px) {
+    #about.about-sheet { grid-template-columns: minmax(0, 1fr); width: min(100% - 32px, 540px); gap: 32px; margin-top: 28px; }
+    .about-person { grid-row: 1; width: min(100%, 300px); justify-self: center; }
+    .about-page .about-page-title { width: calc(100% - 32px); }
+    .about-page-title > small { margin-left: 14px; }
+    .resume-entry-heading { flex-wrap: wrap; gap: 4px 16px; }
+}

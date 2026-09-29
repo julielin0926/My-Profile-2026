@@ -9,12 +9,13 @@
     <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="css/responsive.css">
     <script src="js/navigation.js" defer></script>
+    <link rel="stylesheet" href="css/site-theme.css">
 </head>
 
-<body>
+<body class="about-page">
        
 <!-- 導覽列區塊 -->  
-    <h1>About Me | My Profile</h1>
+    <h1 class="about-page-title">About me<span aria-hidden="true">✳</span><small>關於我</small></h1>
     <nav>
             <ul>
                 <li><a href="index.html">首頁</a></li>
@@ -61,31 +62,68 @@
 
     <!-- 自我介紹區塊 --> 
      <main>
-        <section id="about">
-
-            <h3>關於我</h3>
-            <p>
-                我是林子郁，2026年畢業於國立臺中科技大學多媒體設計系計系。<br>
-                高中就讀臺北市立內湖高工電子科，因對程式設計與遊戲開發深感興趣，大學持續培養設計、互動媒體及程式開發能力。<br>
-                個性理性細心、具責任感，樂於學習新技術並能快速適應挑戰，<br>
-                重視團隊合作與跨領域溝通，對遊戲開發及影音製作充滿熱忱。<br>
-                在學期間積極參與專題與實務製作，累積創作及團隊協作經驗。<br>
-                曾擔任臺灣民俗文物館抓周活動主持與攝影紀錄，培養溝通與應變能力；<br>
-                亦參與城理顧問股份有限公司專案，負責資料分析及企劃書製作，累積資料整理、專案執行與設計實務經驗。
-            </p>
-
-            <h3>學歷</h3>
-                <p>國立臺中科技大學 多媒體設計系 2022-2026</p>
-                <p>臺北市立內湖高工 電子科 2019-2022</p>
-
-            <h3>獲獎作品</h3>
-                <p>畢業專題 -《心聲密語》2026台灣原創遊戲大賞 校園組優勝</p>
-
-            <h3>工作經驗</h3>
-                <p>臺灣民俗文物館 抓周主持及攝影、抓周工作行政事務 2024/3 - 2026/6</p>
-                <p>城理顧問股份有限公司 鹿港實驗工廠基地營運前置計畫書 2025/11 - 2026/3</p>
-                <p>依斯楚互動娛樂股份有限公司 軟體工程師 2026/9 - 至今</p>
-
+        <section id="about" class="about-sheet" aria-label="個人履歷">
+            <div class="about-information">
+                <section class="resume-section" aria-labelledby="profileHeading">
+                    <h2 id="profileHeading">Profile <span>個人簡介</span></h2>
+                    <dl class="profile-facts">
+                        <div><dt>姓名</dt><dd>林子郁 / ZIYU LIN</dd></div>
+                        <div><dt>畢業學校</dt><dd>國立臺中科技大學 多媒體設計系</dd></div>
+                        <div><dt>專長領域</dt><dd>遊戲開發・互動設計<br>網頁能力・伺服器維護</dd></div>
+                    </dl>
+                    <p class="about-introduction">
+                    我是林子郁，2026年畢業於國立臺中科技大學多媒體設計系計系。<br>
+                    高中就讀臺北市立內湖高工電子科，因對程式設計與遊戲開發深感興趣，大學持續培養設計、<br>
+                    互動媒體及程式開發能力。<br>
+                    個性理性細心、具責任感，樂於學習新技術並能快速適應挑戰，<br>
+                    重視團隊合作與跨領域溝通，對遊戲開發及影音製作充滿熱忱。<br>
+                    在學期間積極參與專題與實務製作，累積創作及團隊協作經驗。<br>
+                    曾擔任臺灣民俗文物館抓周活動主持與攝影紀錄，培養溝通與應變能力；<br>
+                    亦參與城理顧問股份有限公司專案，負責資料分析及企劃書製作，累積資料整理、專案執行與設計實務經驗。
+                    </p>
+                </section>
+                <section class="resume-section" aria-labelledby="experienceHeading">
+                    <h2 id="experienceHeading">Experience <span>工作經驗</span></h2>
+                    <article class="resume-entry">
+                        <div class="resume-entry-heading"><h3>依斯楚互動娛樂股份有限公司</h3><span class="resume-date">2026/9 — 至今</span></div>
+                        <p>軟體工程師</p>
+                    </article>
+                    <article class="resume-entry">
+                        <div class="resume-entry-heading"><h3>城理顧問股份有限公司</h3><span class="resume-date">2025/11 — 2026/3</span></div>
+                        <p>參與鹿港實驗工廠基地營運前置計畫書專案，負責資料分析及企劃書製作，累積資料整理、專案執行與設計實務經驗。</p>
+                    </article>
+                    <article class="resume-entry">
+                        <div class="resume-entry-heading"><h3>臺灣民俗文物館</h3><span class="resume-date">2024/3 — 2026/6</span></div>
+                        <p>抓周活動主持、攝影紀錄及行政事務，培養現場溝通與應變能力。</p>
+                    </article>
+                </section>
+                <section class="resume-section" aria-labelledby="educationHeading">
+                    <h2 id="educationHeading">Education <span>學歷</span></h2>
+                    <article class="resume-entry">
+                        <div class="resume-entry-heading"><h3>國立臺中科技大學</h3><span class="resume-date">2022 — 2026</span></div>
+                        <p>多媒體設計系</p>
+                    </article>
+                    <article class="resume-entry">
+                        <div class="resume-entry-heading"><h3>臺北市立內湖高工</h3><span class="resume-date">2019 — 2022</span></div>
+                        <p>電子科</p>
+                    </article>
+                </section>
+                <section class="resume-section" aria-labelledby="awardsHeading">
+                    <h2 id="awardsHeading">Awards <span>獲獎作品</span></h2>
+                    <article class="resume-entry">
+                        <div class="resume-entry-heading"><h3>畢業專題《心聲密語》</h3><span class="resume-date">2026</span></div>
+                        <p>台灣原創遊戲大賞・校園組優勝</p>
+                    </article>
+                </section>
+            </div>
+            <aside class="about-person" aria-label="個人照片與聯絡方式">
+                <p class="about-person-label">〈 林子郁 〉</p>
+                <img src="images/home-portrait.jpg" width="2664" height="3552" alt="林子郁手持甜甜圈的個人照">
+                <p class="about-person-name">ZIYU LIN</p>
+                <p class="about-person-motto">相信做得到，<br>讓努力有回響。</p>
+                <div class="about-person-contact"><span>Email</span><a href="mailto:julielin92926@gmail.com">julielin92926@gmail.com</a></div>
+                <a href="downloads/resume-2026.pdf" download="履歷2026.pdf" class="button">下載履歷 PDF ↓</a>
+            </aside>
         </section>
     </main>
 
