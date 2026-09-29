@@ -1,0 +1,212 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: #292929;
+    background: #fafafa;
+    font-family: Arial, "Microsoft JhengHei", sans-serif;
+    line-height: 1.7;
+}
+
+.experience-admin {
+    width: min(100% - 32px, 900px);
+    margin: 32px auto 64px;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.4;
+}
+
+.admin-links,
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+
+.admin-links {
+    margin-bottom: 20px;
+}
+
+.admin-links a {
+    color: #245b91;
+    text-underline-offset: 4px;
+}
+
+.admin-links a[aria-current="page"] {
+    font-weight: bold;
+}
+
+fieldset {
+    min-width: 0;
+    margin: 0;
+    padding: 20px;
+    border: 1px solid #d6d6d6;
+    border-radius: 12px;
+    background: white;
+}
+
+section + section {
+    margin-top: 36px;
+    padding-top: 24px;
+    border-top: 1px solid #dedede;
+}
+
+label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+input,
+textarea,
+select {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    padding: 10px 12px;
+    border: 1px solid #bdbdbd;
+    border-radius: 6px;
+    font: inherit;
+    color: inherit;
+    background: white;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    padding: 10px 16px;
+    border: 1px solid #bdbdbd;
+    border-radius: 6px;
+    font: inherit;
+    color: inherit;
+    background: #f5f5f5;
+    cursor: pointer;
+}
+
+button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.primary-button {
+    color: white;
+    background: #1765b0;
+    border-color: #1765b0;
+}
+
+.primary-button:hover:not(:disabled) {
+    background: #104e8b;
+}
+
+:focus-visible {
+    outline: 3px solid #408bce;
+    outline-offset: 3px;
+}
+
+.hint {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.experience-list {
+    padding: 0;
+    list-style: none;
+}
+
+.experience-list li {
+    padding: 18px;
+    margin-top: 16px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow-wrap: anywhere;
+}
+
+.experience-list h3 {
+    margin-top: 0;
+}
+
+#operationStatus {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+dialog {
+    width: min(440px, calc(100% - 32px));
+    max-height: calc(100dvh - 48px);
+    overflow-y: auto;
+    padding: 24px;
+    border: 0;
+    border-radius: 12px;
+}
+
+dialog::backdrop {
+    background: rgb(0 0 0 / 45%);
+}
+
+dialog p {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+dialog .actions {
+    justify-content: flex-end;
+}
+
+@media (max-width: 480px) {
+    fieldset {
+        padding: 14px;
+    }
+
+    .experience-admin {
+        margin-top: 20px;
+    }
+}
+
+#experienceImageFields {
+    margin-top: 16px;
+}
+
+.experience-image-grid {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(100%, 220px), 1fr)
+    );
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.experience-image-card {
+    min-width: 0;
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow-wrap: anywhere;
+}
+
+.experience-image-card h3 {
+    margin-top: 0;
+}
+
+.experience-image-card img {
+    display: block;
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    background: #f3f3f3;
+    border-radius: 6px;
+}
+
+#imageStatus {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}

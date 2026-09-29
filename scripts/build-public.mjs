@@ -17,6 +17,25 @@ if (!Array.isArray(works)) {
     throw new Error("Data/works.json 格式不正確");
 }
 
+const experiences = JSON.parse(
+    fs.readFileSync(
+        path.join(root, "Data", "experiences.json"),
+        "utf8"
+    )
+);
+
+if (
+    !Array.isArray(experiences) ||
+    experiences.some(item =>
+        !Number.isSafeInteger(item.id) ||
+        item.id <= 0 ||
+        typeof item.title !== "string" ||
+        !Array.isArray(item.images)
+    )
+) {
+    throw new Error("Data/experiences.json 格式不正確");
+}
+
 const pages = [
     "index.html",
     "about.html",
@@ -24,6 +43,7 @@ const pages = [
     "videos.html",
     "games.html",
     "experience.html",
+    "experience-detail.html",
     "contact.html",
     "work.html"
 ];
@@ -34,6 +54,9 @@ const scripts = [
     "work-detail.js",
     "work-media.js",
     "public-data.js",
+    "experience-data.js",
+    "experiences.js",
+    "experience-detail.js",
     "main.js"
 ];
 
@@ -58,6 +81,25 @@ for (const work of works) {
 }
 
 // _site 是此程式專用的產生目錄，不要放手寫檔案。
+for (const experience of experiences) {
+    for (const image of experience.images) {
+        if (
+            typeof image.url !== "string" ||
+            !/^Data\/experience-images\/[a-f0-9]{32}\.(jpg|png|webp)$/.test(image.url)
+        ) {
+            throw new Error(
+                `工作經驗 ${experience.id} 的圖片路徑不正確`
+            );
+        }
+
+        if (!fs.existsSync(path.join(root, image.url))) {
+            throw new Error(`缺少工作經驗圖片：${image.url}`);
+        }
+
+        publicImagePaths.add(image.url);
+    }
+}
+
 if (
     path.dirname(output) !== root ||
     path.basename(output) !== "_site"
@@ -106,6 +148,7 @@ fs.cpSync(
 );
 
 copyFile("Data/works.json");
+copyFile("Data/experiences.json");
 
 for (const imagePath of publicImagePaths) {
     copyFile(imagePath);

@@ -1,0 +1,142 @@
+.experience-page {
+    width: min(100% - 32px, 1200px);
+    margin: 40px auto 64px;
+    line-height: 1.8;
+}
+
+.experience-page [hidden] {
+    display: none;
+}
+
+.experience-page section {
+    padding: 0;
+    margin-top: 32px;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.experience-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 0;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+}
+
+.experience-card h3,
+.experience-card p {
+    margin: 0;
+}
+
+.experience-card .button {
+    align-self: flex-start;
+    margin-top: auto;
+}
+
+.experience-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    background: #f5f5f5;
+    border-radius: 8px;
+}
+
+.experience-meta {
+    color: #606060;
+}
+
+.experience-detail {
+    max-width: 960px;
+}
+
+.experience-cover img {
+    display: block;
+    width: 100%;
+    max-height: 600px;
+    object-fit: contain;
+    margin-top: 24px;
+    border-radius: 10px;
+}
+
+.experience-logos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.experience-logos img {
+    width: auto;
+    max-width: min(100%, 260px);
+    max-height: 120px;
+    object-fit: contain;
+}
+
+.experience-text {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.experience-photo-grid,
+.experience-review-grid {
+    display: grid;
+    gap: 20px;
+}
+
+.experience-photo-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.experience-review-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+}
+
+.experience-page figure {
+    min-width: 0;
+    margin: 0;
+}
+
+.experience-page figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.experience-page figcaption {
+    margin-top: 8px;
+    color: #606060;
+    font-size: 0.95rem;
+}
+
+.experience-image-error {
+    padding: 16px;
+    background: #f5f5f5;
+}
+
+@media (max-width: 900px) {
+    .experience-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .experience-grid,
+    .experience-photo-grid,
+    .experience-review-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .experience-page {
+        margin-top: 24px;
+    }
+}

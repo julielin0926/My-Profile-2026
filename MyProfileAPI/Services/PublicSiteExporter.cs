@@ -108,6 +108,7 @@ public static class PublicSiteExporter
         Console.WriteLine(
             $"公開資料匯出完成：{publicWorks.Length} 件作品。");
         Console.WriteLine(destination);
+        await ExperienceExporter.RunAsync(context, contentRoot);
     }
 
     private static void ValidateImageFileName(string fileName)

@@ -103,3 +103,63 @@ document.querySelectorAll("nav").forEach((nav, navIndex) => {
         setMenu(false, compactNavigation.matches && menu.contains(active));
     });
 });
+
+async function updateExperienceMenus() {
+    const menus = [
+        ...document.querySelectorAll(
+            'nav > ul > li > a[href="experience.html"]'
+        )
+    ].map(link =>
+        link.parentElement.querySelector(":scope > ul")
+    ).filter(Boolean);
+
+    if (menus.length === 0) return;
+
+    function showOverviewLink(menu) {
+        const item = document.createElement("li");
+        const link = document.createElement("a");
+
+        link.href = "experience.html";
+        link.textContent = "查看所有工作經驗";
+
+        item.append(link);
+        menu.replaceChildren(item);
+    }
+
+    // 載入期間先提供可使用的總覽連結。
+    menus.forEach(showOverviewLink);
+
+    try {
+        const { getExperiences } = await import(
+            "./experience-data.js"
+        );
+
+        const experiences = await getExperiences();
+
+        if (experiences.length === 0) return;
+
+        for (const menu of menus) {
+            const fragment = document.createDocumentFragment();
+
+            for (const experience of experiences) {
+                const item = document.createElement("li");
+                const link = document.createElement("a");
+
+                link.href =
+                    `experience-detail.html?id=${experience.id}`;
+
+                link.textContent = experience.title;
+
+                item.append(link);
+                fragment.append(item);
+            }
+
+            menu.replaceChildren(fragment);
+        }
+    } catch (error) {
+        // 資料載入失敗時，保留可前往總覽的連結。
+        console.warn("工作經驗選單載入失敗：", error);
+    }
+}
+
+updateExperienceMenus();

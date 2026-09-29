@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Experience | My Profile</title>
+    <h1>Experience Introduction | My Profile</h1>
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/experience.css">
     <link rel="stylesheet" href="css/responsive.css">
@@ -57,17 +57,49 @@
             </ul>
         </nav>
 
-        <main class="experience-page">
-            <h2>工作經驗</h2>
+        <main class="experience-page experience-detail">
+            <a href="experience.html">返回工作經驗總覽</a>
 
-            <p id="experienceStatus" role="status">
+            <p id="experienceDetailStatus" role="status">
                 工作經驗載入中…
             </p>
 
-            <div id="experienceGrid" class="experience-grid"></div>
+            <article id="experienceDetail" hidden>
+                <h2 id="experienceTitle"></h2>
+
+                <p id="experienceMeta" class="experience-meta"></p>
+
+                <div id="experienceCover" class="experience-cover"></div>
+
+                <div id="experienceLogos" class="experience-logos"></div>
+
+                <section>
+                    <h3>工作內容</h3>
+                    <p id="experienceWorkContent"
+                    class="experience-text"></p>
+                </section>
+
+                <section>
+                    <h3 id="experienceIntroductionHeading"></h3>
+                    <p id="experienceIntroduction"
+                    class="experience-text"></p>
+                </section>
+
+                <section id="experiencePhotosSection" hidden>
+                    <h3>工作紀錄</h3>
+                    <div id="experiencePhotos"
+                        class="experience-photo-grid"></div>
+                </section>
+
+                <section id="experienceReviewsSection" hidden>
+                    <h3>活動好評</h3>
+                    <div id="experienceReviews"
+                        class="experience-review-grid"></div>
+                </section>
+            </article>
         </main>
 
-        <script type="module" src="js/experiences.js"></script>
+        <script type="module" src="js/experience-detail.js"></script>
 
 </body>
 

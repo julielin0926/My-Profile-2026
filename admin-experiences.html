@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>工作經驗管理 | My Profile</title>
+
+    <link rel="stylesheet" href="css/admin-experiences.css">
+</head>
+
+<body>
+    <main class="experience-admin">
+        <h1>工作經驗管理</h1>
+
+        <nav class="admin-links" aria-label="管理頁面">
+            <a href="index.html">回首頁</a>
+            <a href="admin.html">作品管理</a>
+            <a href="admin-experiences.html" aria-current="page">
+                工作經驗管理
+            </a>
+            <button type="button" id="logoutButton">登出</button>
+        </nav>
+
+        <p id="authStatus" role="status">
+            正在確認登入狀態…
+        </p>
+
+        <fieldset id="managementFields" disabled>
+            <legend>管理工作經驗</legend>
+
+            <section aria-labelledby="editorHeading">
+                <h2 id="editorHeading">新增工作經驗</h2>
+
+                <p id="editingHint">
+                    儲存後會建立一筆新的工作經驗。
+                </p>
+
+                <form id="experienceForm">
+                    <label for="title">標題</label>
+                    <input
+                        id="title"
+                        name="title"
+                        maxlength="100"
+                        placeholder="例如：佈展經驗"
+                        required
+                    >
+
+                    <label for="summary">小卡摘要</label>
+                    <textarea
+                        id="summary"
+                        name="summary"
+                        rows="3"
+                        maxlength="300"
+                        placeholder="簡短介紹，會顯示在工作經驗總覽小卡"
+                    ></textarea>
+
+                    <label for="company">公司／單位名稱</label>
+                    <input
+                        id="company"
+                        name="company"
+                        maxlength="100"
+                        placeholder="例如：臺灣民俗文物館"
+                    >
+
+                    <label for="role">職務或負責角色</label>
+                    <input
+                        id="role"
+                        name="role"
+                        maxlength="100"
+                        placeholder="例如：活動主持、展場協助"
+                    >
+
+                    <label for="period">工作期間</label>
+                    <input
+                        id="period"
+                        name="period"
+                        maxlength="100"
+                        placeholder="例如：2025 年，或 2025.03－2025.06"
+                    >
+
+                    <label for="workContent">工作內容</label>
+                    <textarea
+                        id="workContent"
+                        name="workContent"
+                        rows="7"
+                        maxlength="10000"
+                        placeholder="描述你實際負責的工作"
+                        required
+                    ></textarea>
+
+                    <label for="introductionHeading">介紹區塊標題</label>
+                    <select
+                        id="introductionHeading"
+                        name="introductionHeading"
+                        required
+                    >
+                        <option value="展覽介紹">展覽介紹</option>
+                        <option value="活動介紹">活動介紹</option>
+                        <option value="專案內容">專案內容</option>
+                        <option value="工作介紹">工作介紹</option>
+                    </select>
+
+                    <label for="introduction">介紹內容</label>
+                    <textarea
+                        id="introduction"
+                        name="introduction"
+                        rows="7"
+                        maxlength="10000"
+                        placeholder="介紹展覽、活動或專案本身"
+                        required
+                    ></textarea>
+
+                    <label for="sortOrder">排序數字</label>
+                    <input
+                        id="sortOrder"
+                        name="sortOrder"
+                        type="number"
+                        min="0"
+                        max="100000"
+                        step="1"
+                        value="10"
+                        required
+                    >
+
+                    <p class="hint">數字越小，越前面顯示。</p>
+
+                    <div class="actions">
+                        <button type="submit" id="saveButton"
+                                class="primary-button">
+                            新增工作經驗
+                        </button>
+
+                        <button type="button" id="newButton">
+                            清空並新增另一筆
+                        </button>
+                    </div>
+                </form>
+            </section>
+            
+            <section aria-labelledby="imagesHeading">
+                <h2 id="imagesHeading">工作照片與 Logo</h2>
+
+                <p id="imageHint">
+                    請先儲存工作經驗，或從清單選擇一筆資料編輯。
+                </p>
+
+                <button type="button" id="reloadImagesButton" disabled>
+                    重新載入圖片
+                </button>
+
+                <fieldset id="experienceImageFields" disabled>
+                    <legend>圖片管理</legend>
+
+                    <form id="experienceImageForm">
+                        <label for="imageKind">圖片用途</label>
+
+                        <select id="imageKind">
+                            <option value="cover">主相片／小卡封面</option>
+                            <option value="company-logo">公司 Logo</option>
+                            <option value="activity-logo">活動 Logo</option>
+                            <option value="work-1">工作內容照片 1</option>
+                            <option value="work-2">工作內容照片 2</option>
+                            <option value="work-3">工作內容照片 3</option>
+                            <option value="review">好評截圖</option>
+                        </select>
+
+                        <label for="experienceImageFile">選擇圖片</label>
+                        <input
+                            id="experienceImageFile"
+                            type="file"
+                            accept="image/png,image/jpeg,image/webp"
+                            required
+                        >
+
+                        <label for="imageCaption">圖片說明</label>
+                        <input
+                            id="imageCaption"
+                            maxlength="200"
+                            placeholder="例如：展場設備安裝紀錄"
+                        >
+
+                        <p class="hint">
+                            每次上傳一張，每張上限 5 MB。
+                            主相片、Logo 與工作照片會替換相同位置的舊圖；
+                            好評截圖則逐張新增。
+                        </p>
+
+                        <button type="submit" class="primary-button">
+                            上傳圖片
+                        </button>
+                    </form>
+
+                    <p class="hint">
+                        圖片上傳與移除會立即儲存，
+                        不需要再按上方的「儲存修改」。
+                    </p>
+
+                    <div id="experienceImages" class="experience-image-grid"></div>
+                </fieldset>
+
+                <p id="imageStatus" role="status" aria-live="polite"></p>
+            </section>
+
+            <section aria-labelledby="listHeading">
+                <h2 id="listHeading">已新增的工作經驗</h2>
+
+                <button type="button" id="reloadButton">
+                    重新整理清單
+                </button>
+
+                <p id="listStatus" role="status"></p>
+
+                <ul id="experienceList" class="experience-list"></ul>
+            </section>
+        </fieldset>
+
+        <p id="operationStatus" role="status" aria-live="polite"></p>
+    </main>
+
+    <dialog
+        id="confirmDialog"
+        aria-labelledby="confirmTitle"
+        aria-describedby="confirmMessage"
+    >
+        <h2 id="confirmTitle">確認操作</h2>
+
+        <p id="confirmMessage"></p>
+
+        <form method="dialog" class="actions">
+            <button value="cancel" autofocus>取消</button>
+            <button value="confirm" class="primary-button">
+                確認
+            </button>
+        </form>
+    </dialog>
+
+    <script type="module" src="js/admin-experiences.js"></script>
+</body>
+</html>

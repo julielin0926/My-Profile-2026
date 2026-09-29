@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "title": "\u4F48\u5C55\u7D93\u9A57",
+    "summary": "\u5354\u52A9\u81FA\u7063\u6C11\u4FD7\u6587\u7269\u9928\u7B56\u5283\u7684\u7279\u5C55\u300A\u5C71\u6D77\u5996\u5883\u300B\u4F48\u5C55\u8207\u64A4\u5C55\u4F5C\u696D",
+    "company": "\u81FA\u7063\u6C11\u4FD7\u6587\u7269\u9928",
+    "role": "\u5C55\u89BD\u64A4\u4F48\u5C55\u5DE5\u8B80\u751F",
+    "period": "2025/2/27",
+    "workContent": "\u5354\u52A9\u5C55\u89BD\u4F48\u5C55\u8207\u64A4\u5C55\u4F5C\u696D\uFF0C\u5305\u542B\u5C55\u5834\u7A7A\u9593\u914D\u7F6E\u3001\u5C55\u54C1\u64FA\u8A2D\u53CA\u8A2D\u5099\u5B89\u88DD\uFF0C\u4E26\u652F\u63F4\u5C55\u89BD\u6D3B\u52D5\u7D00\u9304\uFF0C\u719F\u6089\u5C55\u89BD\u57F7\u884C\u6D41\u7A0B\u53CA\u5718\u968A\u5354\u4F5C\uFF0C\u57F9\u990A\u5C55\u52D9\u898F\u5283\u8207\u73FE\u5834\u61C9\u8B8A\u80FD\u529B\u3002",
+    "introductionHeading": "\u5C55\u89BD\u4ECB\u7D39",
+    "introduction": "\u300A\u5C71\u6D77\u5996\u5883\u300B\u70BA\u81FA\u7063\u6C11\u4FD7\u6587\u7269\u9928\u7B56\u5283\u7684\u7279\u5C55\uFF0C\u4EE5\u81FA\u7063\u6C11\u9593\u5996\u602A\u50B3\u8AAA\u70BA\u4E3B\u984C\uFF0C\u7D50\u5408\u5C71\u6797\u3001\u6D77\u6D0B\u53CA\u6C11\u4FD7\u4FE1\u4EF0\u6587\u5316\uFF0C\u900F\u904E\u60C5\u5883\u5C55\u793A\u3001\u4E92\u52D5\u9AD4\u9A57\u8207\u6545\u4E8B\u89E3\u8AAA\uFF0C\u5E36\u9818\u89C0\u773E\u63A2\u7D22\u81FA\u7063\u50B3\u8AAA\u4E2D\u7684\u5947\u7570\u751F\u7269\uFF0C\u91CD\u65B0\u8A8D\u8B58\u5996\u602A\u6587\u5316\u8207\u5730\u65B9\u4FE1\u4EF0\u7684\u6587\u5316\u610F\u6DB5\u3002",
+    "sortOrder": 1,
+    "images": [
+      {
+        "id": 1,
+        "kind": "activity-logo",
+        "caption": "\u5C55\u89BD\u4E3B\u8996\u89BA",
+        "url": "Data/experience-images/b873cc210c65424f9c952d8abb5cb4ba.jpg"
+      },
+      {
+        "id": 2,
+        "kind": "work-1",
+        "caption": "\u5DE5\u4F5C\u7D00\u93041",
+        "url": "Data/experience-images/b453f1ee5f744d879d092a59b8363f07.jpg"
+      },
+      {
+        "id": 3,
+        "kind": "work-2",
+        "caption": "\u5DE5\u4F5C\u7D00\u93042",
+        "url": "Data/experience-images/a3dc0411ce4a42b5bb422b8183f84e57.jpg"
+      },
+      {
+        "id": 4,
+        "kind": "work-3",
+        "caption": "\u5DE5\u4F5C\u7D00\u93043",
+        "url": "Data/experience-images/4e984d0b35fd46308f8d66a96655079c.jpg"
+      },
+      {
+        "id": 5,
+        "kind": "cover",
+        "caption": "\u5C0F\u5361\u5C01\u9762",
+        "url": "Data/experience-images/1b58d7d91c79409abf2a799c54809719.jpg"
+      }
+    ]
+  }
+]
